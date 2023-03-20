@@ -56,6 +56,7 @@ func attack(attack_input_just_pressed: bool, attack_input_held: bool):
 	bullet_emitters_base.global_transform = start_transform
 	anim_player.stop()
 	anim_player.play("attack")
+	emit_signal("fired")
 	can_attack = false
 	attack_timer.start()
 

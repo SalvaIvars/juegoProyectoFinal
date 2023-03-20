@@ -6,11 +6,6 @@ var hotkeys = {
 	KEY_3: 2,
 	KEY_4: 3,
 	KEY_5: 4,
-	KEY_6: 5,
-	KEY_7: 6,
-	KEY_8: 7,
-	KEY_9: 8,
-	KEY_0: 9,
 }
 
 export var mouse_sens = 0.5
