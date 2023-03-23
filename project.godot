@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ProyectoFinal"
-run/main_scene="res://World.tscn"
+run/main_scene="res://ui/menu/Intro.tscn"
 config/icon="res://icon.png"
 
 [gui]
@@ -103,6 +103,11 @@ attack={
 restart={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 
