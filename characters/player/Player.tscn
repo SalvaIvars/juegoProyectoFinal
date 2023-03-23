@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://weapons/crosshairs/crosshair001.png" type="Texture" id=19]
 [ext_resource path="res://weapons/crosshairs/crosshair026.png" type="Texture" id=20]
 [ext_resource path="res://characters/player/PickupManager.gd" type="Script" id=21]
+[ext_resource path="res://ui/KleintenDynFont.tres" type="DynamicFont" id=22]
+[ext_resource path="res://characters/Player/StatsDisplay.gd" type="Script" id=23]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -471,6 +473,21 @@ script = ExtResource( 21 )
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
 shape = SubResource( 14 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StatsDisplay" type="Label" parent="CanvasLayer"]
+anchor_right = 0.229
+margin_left = 23.0
+margin_top = 20.0
+margin_right = 183.0
+margin_bottom = 107.0
+custom_fonts/font = ExtResource( 22 )
+text = "Health: 0
+Ammo: 0"
+script = ExtResource( 23 )
+
+[connection signal="ammo_changed" from="Camera/WeaponManager" to="CanvasLayer/StatsDisplay" method="update_ammo"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/MachineGun" to="Camera/WeaponManager/Weapons/MachineGun/Graphics/MuzzleFlash" method="flash"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/Shotgun" to="Camera/WeaponManager/Weapons/Shotgun/Graphics/MuzzleFlash" method="flash"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/RocketLauncher" to="Camera/WeaponManager/Weapons/RocketLauncher/Graphics/MuzzleFlash" method="flash"]
+[connection signal="health_changed" from="HealthManager" to="CanvasLayer/StatsDisplay" method="update_health"]
