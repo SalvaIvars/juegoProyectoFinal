@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/rocket.glb-1600072bb9bd8c46023b32675d6a4640.scn"
+path="res://.import/gib.glb-28caa2ff33de4638db159e37ed263e97.scn"
 
 [deps]
 
-source_file="res://weapons/raw_assets/rocket.glb"
-dest_files=[ "res://.import/rocket.glb-1600072bb9bd8c46023b32675d6a4640.scn" ]
+source_file="res://effects/raw_assets/gib.glb"
+dest_files=[ "res://.import/gib.glb-28caa2ff33de4638db159e37ed263e97.scn" ]
 
 [params]
 
@@ -16,9 +16,11 @@ nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
+nodes/use_legacy_names=true
 materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true
+meshes/octahedral_compression=true
 meshes/compress=true
 meshes/ensure_tangents=true
 meshes/storage=0
