@@ -83,7 +83,6 @@ custom_fonts/font = ExtResource( 1 )
 text = "A GAME BY"
 align = 1
 valign = 1
-percent_visible = -0.142857
 
 [node name="Label3" type="Label" parent="Logo/CenterContainer/VBoxContainer"]
 margin_top = 40.0

@@ -1,7 +1,7 @@
 extends Area
 
 
-var bodies_to_exclude = ["BirdMonster"]
+var bodies_to_exclude = ["BirdMonster", "ReptileMonster"]
 var damage = 10
 
 func set_damage(_damage: int):
@@ -12,5 +12,5 @@ func set_bodies_to_exclude(_bodies_to_exclude: Array):
 
 func fire():
 	for body in get_overlapping_bodies():
-		if body.has_method("hurt") and !body in bodies_to_exclude:
+		if body.has_method("hurt") and !body.name in bodies_to_exclude:
 			body.hurt(damage, global_transform.origin.direction_to(body.global_transform.origin))
