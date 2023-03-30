@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.1 commit date:2022-12-19, commit time:17:00, hash:55485cb379f7</authoring_tool>
+    </contributor>
+    <created>2023-02-28T17:07:41</created>
+    <modified>2023-02-28T17:07:41</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="mbushnak0_tex-effect">
+      <profile_COMMON>
+        <newparam sid="mbushnak0img_png-surface">
+          <surface type="2D">
+            <init_from>mbushnak0img_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="mbushnak0img_png-sampler">
+          <sampler2D>
+            <source>mbushnak0img_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="mbushnak0img_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="mbushnak0img_png" name="mbushnak0img_png">
+      <init_from>mbushnak0img.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="mbushnak0_tex-material" name="mbushnak0_tex">
+      <instance_effect url="#mbushnak0_tex-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plane_005-mesh" name="Plane.005">
+      <mesh>
+        <source id="Plane_005-mesh-positions">
+          <float_array id="Plane_005-mesh-positions-array" count="84">-0.9997243 -0.02055752 0.02045458 1.000276 -0.02055752 0.02045458 -0.9997243 1.979442 0.02045458 1.000276 1.979442 0.02045458 -0.3511081 -0.3967813 -0.8482791 0.3375074 0.3474776 0.8756372 -1.295242 1.327651 -1.215628 -0.6066265 2.071909 0.5082883 0.7630777 -0.354003 -0.5410028 -0.7796022 0.2993754 0.5513504 0.3487195 1.011109 -1.942708 -1.19396 1.664487 -0.8503547 0.8636597 0.2386448 0.4443314 -0.8558375 -0.2935916 -0.4274795 1.352481 1.308728 -1.173066 -0.367016 0.7764918 -2.044877 -0.2639976 0.4258337 0.8655985 0.2867237 -0.4699937 -0.8356364 0.4242067 2.170078 0.1699077 0.9749281 1.274251 -1.531327 -0.804654 0.4706435 0.9646943 0.8075797 -0.5053389 -0.747641 -0.8218132 2.675853 -0.3083686 0.7904205 1.699871 -2.020704 -1.083231 -0.4403259 -0.6095394 0.9711987 0.3237866 0.6863716 -1.10039 1.764884 -1.882602 0.9540397 2.528996 -0.5866914</float_array>
+          <technique_common>
+            <accessor source="#Plane_005-mesh-positions-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_005-mesh-normals">
+          <float_array id="Plane_005-mesh-normals-array" count="60">0 0 1 -0.8115448 -0.3436615 0.4725376 -0.8115448 -0.3436614 0.4725376 -0.8115448 -0.3436614 0.4725376 -0.601757 -0.653752 -0.4587996 -0.6017569 -0.653752 -0.4587996 0.4484371 -0.8018177 -0.3949591 0.448437 -0.8018177 -0.3949592 0.8976472 -0.1969164 0.3942762 0.8976471 -0.1969164 0.3942763 0.8976472 -0.1969164 0.3942762 0.7739973 0.3210794 0.5457438 0.7739973 0.3210794 0.5457438 -0.5907709 0.3999396 0.7007412 -0.5907709 0.3999397 0.7007411 -0.5907709 0.3999396 0.7007411 -0.8115448 -0.3436614 0.4725377 0.4484372 -0.8018177 -0.3949592 0.8976471 -0.1969164 0.3942762 -0.5907709 0.3999396 0.7007412</float_array>
+          <technique_common>
+            <accessor source="#Plane_005-mesh-normals-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_005-mesh-map-0">
+          <float_array id="Plane_005-mesh-map-0-array" count="84">1 0 0 1 0 0 0 0 1 1 0 1 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 0 1 1 0 1 1 0 1 1 0 1 0 0 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 1 0 1 0 0 1 0 1 1</float_array>
+          <technique_common>
+            <accessor source="#Plane_005-mesh-map-0-array" count="42" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_005-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_005-mesh-positions"/>
+        </vertices>
+        <triangles material="mbushnak0_tex-material" count="14">
+          <input semantic="VERTEX" source="#Plane_005-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_005-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_005-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 2 0 1 0 0 2 4 1 3 7 2 4 6 3 5 9 4 6 10 4 7 8 5 8 13 6 9 14 6 10 12 7 11 17 8 12 18 9 13 16 10 14 21 11 15 22 11 16 20 12 17 24 13 18 27 14 19 26 15 20 1 0 21 3 0 22 2 0 23 4 1 24 5 16 25 7 2 26 9 4 27 11 4 28 10 4 29 13 6 30 15 17 31 14 6 32 17 8 33 19 18 34 18 9 35 21 11 36 23 11 37 22 11 38 24 13 39 25 19 40 27 14 41</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="mbushnak_0" name="mbushnak_0" type="NODE">
+        <matrix sid="transform">-1.007645 -2.43213e-8 0.01358154 -5.23869e-10 0.01176194 0.5038686 0.8726466 -5.96046e-8 -0.006790791 0.8727258 -0.5038228 -1.19209e-7 0 0 0 1</matrix>
+        <instance_geometry url="#Plane_005-mesh" name="mbushnak_0">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="mbushnak0_tex-material" target="#mbushnak0_tex-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

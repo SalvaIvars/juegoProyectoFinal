@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/mbushtro_1.obj-9a96f23dc2eebe93f379de5840e202e7.mesh"
+
+[deps]
+
+files=[ "res://.import/mbushtro_1.obj-9a96f23dc2eebe93f379de5840e202e7.mesh" ]
+
+source_file="res://World3Assets/Meshes/OBJ/bushes/mbushtro_1.obj"
+dest_files=[ "res://.import/mbushtro_1.obj-9a96f23dc2eebe93f379de5840e202e7.mesh", "res://.import/mbushtro_1.obj-9a96f23dc2eebe93f379de5840e202e7.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

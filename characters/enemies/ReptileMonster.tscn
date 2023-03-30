@@ -47,7 +47,6 @@ collision_layer = 2
 collision_mask = 3
 script = ExtResource( 3 )
 attack_range = 100.0
-attack_rate = 1.0
 
 [node name="Graphics" parent="." instance=ExtResource( 1 )]
 

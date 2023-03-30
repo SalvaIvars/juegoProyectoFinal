@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.1 commit date:2022-12-19, commit time:17:00, hash:55485cb379f7</authoring_tool>
+    </contributor>
+    <created>2023-02-28T16:25:58</created>
+    <modified>2023-02-28T16:25:58</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="sbouldersno_tex-effect">
+      <profile_COMMON>
+        <newparam sid="sboulder_snoimg_png-surface">
+          <surface type="2D">
+            <init_from>sboulder_snoimg_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="sboulder_snoimg_png-sampler">
+          <sampler2D>
+            <source>sboulder_snoimg_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="sboulder_snoimg_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="sboulder_snoimg_png" name="sboulder_snoimg_png">
+      <init_from>sboulder_snoimg.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="sbouldersno_tex-material" name="sbouldersno_tex">
+      <instance_effect url="#sbouldersno_tex-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="rock_001-mesh" name="rock.001">
+      <mesh>
+        <source id="rock_001-mesh-positions">
+          <float_array id="rock_001-mesh-positions-array" count="48">0.4316208 -0.04269039 -0.1151892 -0.1510266 -0.3794584 -0.3850161 -0.4131146 -0.1606822 -0.3781664 0.0600568 0.2336665 0.2607415 0.08135592 0.2399507 -0.4003993 -0.3334484 0.2353417 0.1512122 -0.3553602 -0.1842705 0.3028046 -0.3815196 0.1666953 -0.2394844 0.3781601 -0.1898794 -0.2651709 -0.3490863 0.03245848 0.3503421 -0.08572554 0.3731223 -0.04259145 -0.02627813 -0.4401122 -0.1227464 -0.1643789 0.0370081 0.4784218 0.3088551 -0.01266837 -0.5039659 0.4096353 0.1390724 -0.2800207 -0.04389393 -0.2042298 0.4206213</float_array>
+          <technique_common>
+            <accessor source="#rock_001-mesh-positions-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="rock_001-mesh-normals">
+          <float_array id="rock_001-mesh-normals-array" count="48">0.7793744 -0.5969405 -0.1903618 0.4833843 -0.01540213 -0.8752728 0.9512393 -0.104204 0.2903195 -0.04125207 0.9991433 0.00334239 0.4365833 0.6541939 0.6175966 0.8359074 0.5152276 -0.1892068 -0.6860384 0.6686309 0.2868521 0.2876418 -0.530152 0.7976222 0.02967786 0.7239158 -0.6892497 -0.7881797 -0.2340611 -0.5691996 -0.7752456 0.511237 -0.3709867 -0.7318472 -0.5152459 0.4460061 -0.8014429 0.2221228 0.5552933 -0.05643159 0.2509013 0.9663664 0.06497448 -0.9957408 0.06541234 -0.2406916 -0.784574 -0.5714117</float_array>
+          <technique_common>
+            <accessor source="#rock_001-mesh-normals-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="rock_001-mesh-map-0">
+          <float_array id="rock_001-mesh-map-0-array" count="168">0.1006001 0.8560723 0.1245785 1.068173 -0.03695887 0.8126923 0.1764721 0.3430193 0 0.3560516 0.1097992 0.05555468 0.6564273 0.8317587 0.7462983 0.9137073 0.5443577 0.9198673 0.6036881 0.6845939 0.6546846 0.5123403 0.7902999 0.6097987 0.1751926 0.3278306 0.1006001 0.8560723 -0.03695887 0.8126923 0.6036881 0.1725168 0.7946222 0.03373253 0.7946222 0.3959731 0.2577428 0.1551848 0.1097992 0.05555468 0.2073241 0 1 0 0.7946223 0.2570953 0.8356121 0.06399083 1 0 1 0.3379508 0.8922773 0.3579274 0.7119975 0.4647319 0.6036881 0.1725168 0.7946222 0.3959731 0.1764721 0.3430193 0.2577428 0.1551848 0.3088048 0.3560516 0.1764721 0.3430193 0.1097992 0.05555468 0.2577428 0.1551848 0.7365527 0.8092915 0.6036881 0.6845939 0.7902999 0.6097987 0.1751926 0.3278306 0.4623901 0.3372296 0.3118731 0.7037917 0.3118731 0.7037917 0.4623901 0.3372296 0.6109431 0.8681753 0.1006001 0.8560723 0.3118731 0.7037917 0.3739005 0.8321378 0.1751926 0.3278306 0.3118731 0.7037917 0.1006001 0.8560723 0.7461383 0.7322109 0.6210855 0.8451811 0.6370416 0.7357705 0.6036881 0.1725168 0.6628143 0 0.7946222 0.03373253 0.8254109 0.7442522 0.7365527 0.8092915 0.7902999 0.6097987 0.7461383 0.7322109 0.7461383 0.8960015 0.6210855 0.8451811 0.3739005 0.8321378 0.6109431 0.8681753 0.1245785 1.068173 0.4457601 0.3336701 0.4291957 0.01989948 0.6036881 0 0.1006001 0.8560723 0.3739005 0.8321378 0.1245785 1.068173 0.4457601 0.3336701 0.3088048 0.231527 0.4291957 0.01989948 1 0 0.8922773 0.3579274 0.7946223 0.2570953 0.8254109 0.4647319 0.7902999 0.6097987 0.6546846 0.5123403 0.3739005 0.8321378 0.3118731 0.7037917 0.6109431 0.8681753</float_array>
+          <technique_common>
+            <accessor source="#rock_001-mesh-map-0-array" count="84" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="rock_001-mesh-vertices">
+          <input semantic="POSITION" source="#rock_001-mesh-positions"/>
+        </vertices>
+        <triangles material="sbouldersno_tex-material" count="28">
+          <input semantic="VERTEX" source="#rock_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#rock_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#rock_001-mesh-map-0" offset="2" set="0"/>
+          <p>8 0 0 13 1 1 0 2 2 10 3 3 3 4 4 14 5 5 14 5 6 0 2 7 13 1 8 3 4 9 10 3 10 5 6 11 15 7 12 8 0 13 0 2 14 3 4 15 15 7 16 0 2 17 4 8 18 14 5 19 13 1 20 2 9 21 5 6 22 7 10 23 2 9 24 6 11 25 9 12 26 14 5 27 3 4 28 0 2 29 10 3 30 4 8 31 7 10 32 10 3 33 14 5 34 4 8 35 12 13 36 3 4 37 5 6 38 15 7 39 6 11 40 11 14 41 11 14 42 6 11 43 2 9 44 8 0 45 11 14 46 1 15 47 15 7 48 11 14 49 8 0 50 6 11 51 12 13 52 9 12 53 3 4 54 12 13 55 15 7 56 9 12 57 12 13 58 5 6 59 6 11 60 15 7 61 12 13 62 1 15 63 2 9 64 13 1 65 2 9 66 4 8 67 13 1 68 8 0 69 1 15 70 13 1 71 2 9 72 7 10 73 4 8 74 2 9 75 9 12 76 5 6 77 7 10 78 5 6 79 10 3 80 1 15 81 11 14 82 2 9 83</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="sbouldersno_0" name="sbouldersno_0" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -0.1545377 0.9879869 0 0 -0.9879869 -0.1545377 0 0 0 0 1</matrix>
+        <instance_geometry url="#rock_001-mesh" name="sbouldersno_0">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="sbouldersno_tex-material" target="#sbouldersno_tex-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
