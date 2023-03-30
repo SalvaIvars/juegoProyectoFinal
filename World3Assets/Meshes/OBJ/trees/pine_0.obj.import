@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pine_0.obj-0726f10027e2fe5bc077e047f86f6b3e.mesh"
+
+[deps]
+
+files=[ "res://.import/pine_0.obj-0726f10027e2fe5bc077e047f86f6b3e.mesh" ]
+
+source_file="res://World3Assets/Meshes/OBJ/trees/pine_0.obj"
+dest_files=[ "res://.import/pine_0.obj-0726f10027e2fe5bc077e047f86f6b3e.mesh", "res://.import/pine_0.obj-0726f10027e2fe5bc077e047f86f6b3e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

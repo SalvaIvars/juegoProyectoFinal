@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/landmntnig.obj-636db3c5fd79c5f8024a783a19b658b9.mesh"
+
+[deps]
+
+files=[ "res://.import/landmntnig.obj-636db3c5fd79c5f8024a783a19b658b9.mesh" ]
+
+source_file="res://World3Assets/Meshes/OBJ/skies/landmntnig.obj"
+dest_files=[ "res://.import/landmntnig.obj-636db3c5fd79c5f8024a783a19b658b9.mesh", "res://.import/landmntnig.obj-636db3c5fd79c5f8024a783a19b658b9.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

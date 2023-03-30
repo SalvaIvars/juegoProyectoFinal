@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/skyboxnig.obj-97285055920cd7a6d05b80df8ba0e57f.mesh"
+
+[deps]
+
+files=[ "res://.import/skyboxnig.obj-97285055920cd7a6d05b80df8ba0e57f.mesh" ]
+
+source_file="res://World3Assets/Meshes/OBJ/skies/skyboxnig.obj"
+dest_files=[ "res://.import/skyboxnig.obj-97285055920cd7a6d05b80df8ba0e57f.mesh", "res://.import/skyboxnig.obj-97285055920cd7a6d05b80df8ba0e57f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

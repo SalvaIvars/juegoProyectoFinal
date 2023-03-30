@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/lbouldersno_1.obj-5132e9b2e5134b2a25f7bac3dac6da03.mesh"
+
+[deps]
+
+files=[ "res://.import/lbouldersno_1.obj-5132e9b2e5134b2a25f7bac3dac6da03.mesh" ]
+
+source_file="res://World3Assets/Meshes/OBJ/boulders/lbouldersno_1.obj"
+dest_files=[ "res://.import/lbouldersno_1.obj-5132e9b2e5134b2a25f7bac3dac6da03.mesh", "res://.import/lbouldersno_1.obj-5132e9b2e5134b2a25f7bac3dac6da03.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

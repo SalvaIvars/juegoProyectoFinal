@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.1 commit date:2022-12-19, commit time:17:00, hash:55485cb379f7</authoring_tool>
+    </contributor>
+    <created>2023-02-28T17:19:53</created>
+    <modified>2023-02-28T17:19:53</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="pinebark_tex-effect">
+      <profile_COMMON>
+        <newparam sid="pine_barkimg_png-surface">
+          <surface type="2D">
+            <init_from>pine_barkimg_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="pine_barkimg_png-sampler">
+          <sampler2D>
+            <source>pine_barkimg_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="pine_barkimg_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="pineleaves_tex-effect">
+      <profile_COMMON>
+        <newparam sid="pine_leafimg_png-surface">
+          <surface type="2D">
+            <init_from>pine_leafimg_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="pine_leafimg_png-sampler">
+          <sampler2D>
+            <source>pine_leafimg_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="pine_leafimg_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="pine_barkimg_png" name="pine_barkimg_png">
+      <init_from>pine_barkimg.png</init_from>
+    </image>
+    <image id="pine_leafimg_png" name="pine_leafimg_png">
+      <init_from>pine_leafimg.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="pinebark_tex-material" name="pinebark_tex">
+      <instance_effect url="#pinebark_tex-effect"/>
+    </material>
+    <material id="pineleaves_tex-material" name="pineleaves_tex">
+      <instance_effect url="#pineleaves_tex-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Cylinder-mesh" name="Cylinder">
+      <mesh>
+        <source id="Cylinder-mesh-positions">
+          <float_array id="Cylinder-mesh-positions-array" count="219">0 1 -1 0 0.1673199 24.56528 0.9510565 0.309017 -1 0.1591306 0.0517047 24.56528 0.5877852 -0.8090171 -1 0.09834814 -0.1353646 24.56528 -0.5877854 -0.809017 -1 -0.0983482 -0.1353645 24.56528 -0.9510565 0.3090171 -1 -0.1591306 0.0517047 24.56528 -2.282319 -8.620287 6.869736 8.620287 -2.282319 6.869736 -8.620288 2.282319 6.869736 2.282319 8.620287 6.869736 -7.268405 -4.225313 6.869736 7.268405 4.225313 6.869736 4.225313 -7.268405 6.869736 -4.225313 7.268405 6.869736 0 0 13.38384 -5.114654 -5.972703 10.4209 5.972703 -5.114654 10.4209 -5.972703 5.114654 10.4209 5.114654 5.972703 10.4209 -7.391571 -0.572033 10.4209 7.391571 0.572033 10.4209 0.572033 -7.391571 10.4209 -0.572033 7.391571 10.4209 0 0 16.43291 0.7450051 -6.600209 13.59119 6.600209 0.7450051 13.59119 -6.600209 -0.7450051 13.59119 -0.7450049 6.600209 13.59119 -3.90347 -4.89681 13.59119 3.90347 4.89681 13.59119 4.89681 -3.90347 13.59119 -4.89681 3.90347 13.59119 0 0 19.02137 -4.712855 -2.583445 16.29351 2.583445 -4.712855 16.29351 -2.583445 4.712855 16.29351 4.712855 2.583445 16.29351 -4.864201 1.419607 16.29351 4.864201 -1.419607 16.29351 -1.419607 -4.864201 16.29351 1.419607 4.864201 16.29351 0 0 21.11979 -3.845013 1.677553 18.82402 -1.677553 -3.845013 18.82402 1.677553 3.845014 18.82402 3.845013 -1.677553 18.82402 -1.444973 3.681711 18.82402 1.444973 -3.681711 18.82402 -3.681711 -1.444973 18.82402 3.681711 1.444973 18.82402 0 0 23.0884 0.06550407 -3.120603 21.05154 3.120603 0.06550407 21.05154 -3.120603 -0.06550419 21.05154 -0.06550407 3.120603 21.05154 -2.036732 -2.124071 21.05154 2.036732 2.124071 21.05154 2.124071 -2.036732 21.05154 -2.124071 2.036732 21.05154 0 0 24.80438 -6.757503 -8.934471 2.240159 8.934471 -6.757503 2.240159 -8.934471 6.757503 2.240159 6.757503 8.934471 2.240159 -10.46132 -1.451312 2.240159 10.46132 1.451312 2.240159 1.451312 -10.46132 2.240159 -1.451312 10.46132 2.240159 0 0 10.42335</float_array>
+          <technique_common>
+            <accessor source="#Cylinder-mesh-positions-array" count="73" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cylinder-mesh-normals">
+          <float_array id="Cylinder-mesh-normals-array" count="219">1.32507e-6 0.7940384 0.6078677 0.7723728 0.2509611 -0.5834885 -1.91077e-6 0.8121215 -0.5834885 0.7551786 0.2453697 0.6078643 0.4773545 -0.657019 -0.5834885 0.4667234 -0.6423909 0.6078678 -0.4773515 -0.6570212 -0.5834884 -0.4667265 -0.6423895 0.6078669 -0.772374 0.2509576 -0.5834885 -0.7551752 0.2453715 0.6078678 0 0 1 0.1509743 0.5702278 0.8074944 -0.3078172 0.5295088 0.7904865 0.3078173 -0.5295088 0.7904865 0.5702278 -0.1509742 0.8074944 -0.1509742 -0.5702278 0.8074943 -0.5295088 -0.3078173 0.7904866 -0.5702278 0.1509743 0.8074944 0.5295088 0.3078172 0.7904866 0 0 1 0.3950605 0.4613371 0.794415 -0.04859942 0.6279823 0.7767087 0.0485993 -0.6279824 0.7767086 0.4613372 -0.3950606 0.794415 -0.3950605 -0.4613371 0.7944149 -0.6279823 -0.04859948 0.7767087 -0.4613372 0.3950606 0.7944151 0.6279824 0.04859948 0.7767087 0 0 1 -0.07099264 0.6289452 0.7742015 -0.5122835 0.4083644 0.755516 0.5122835 -0.4083644 0.7555159 0.6289451 0.07099276 0.7742016 0.0709927 -0.6289452 0.7742015 -0.4083645 -0.5122835 0.7555159 -0.6289451 -0.07099276 0.7742016 0.4083645 0.5122835 0.7555159 0 0 1 0.585888 0.321166 0.7440347 0.1932232 0.662069 0.724106 -0.1932232 -0.662069 0.7241059 0.3211661 -0.5858879 0.7440348 -0.585888 -0.321166 0.7440347 -0.6620688 0.1932236 0.724106 -0.3211661 0.5858879 0.7440348 0.6620688 -0.1932236 0.724106 0 0 1 0.6533987 -0.2850733 0.7012869 0.6825097 0.2678668 0.6800206 -0.6825096 -0.2678669 0.6800206 -0.2850735 -0.6533986 0.701287 -0.6533989 0.2850733 0.7012869 -0.267867 0.6825097 0.6800205 0.2850735 0.6533986 0.701287 0.2678667 -0.6825097 0.6800206 -1.41147e-7 1.41147e-7 1 -0.01613491 0.7686637 0.6394496 -0.5679891 0.5446341 0.6170592 0.5679894 -0.5446341 0.6170591 0.7686637 0.01613497 0.6394497 0.01613491 -0.7686638 0.6394497 -0.5446346 -0.5679889 0.617059 -0.7686638 -0.01613479 0.6394495 0.5446341 0.5679891 0.6170592 0 0 1 0.3558315 0.4704647 0.8074944 -0.08416396 0.6066693 0.7904866 0.08416396 -0.6066692 0.7904865 0.4704646 -0.3558315 0.8074943 -0.3558315 -0.4704646 0.8074943 -0.6066692 -0.08416396 0.7904865 -0.4704646 0.3558315 0.8074944 0.6066693 0.0841639 0.7904866</float_array>
+          <technique_common>
+            <accessor source="#Cylinder-mesh-normals-array" count="73" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Cylinder-mesh-map-0">
+          <float_array id="Cylinder-mesh-map-0-array" count="432">0.1647304 1 0.1379014 0 0.1838685 0 0.02682906 1 0 0 0.04596716 0 0.2106975 1 0.1838685 0 0.2298356 0 0.2925503 0.1083799 0.2925503 0.09284502 0.3016814 0.0958119 0.1187633 1 0.09193426 0 0.1379014 0 0.07279622 1 0.04596716 0 0.09193432 0 0.3752078 0.01773184 0.3206349 0.09284502 0.2869069 0.04642248 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.5 0.5 1 1 0.5 1 0.5 0 1 0 0.5 0.5 0 0 0.5 0 0.5 0.5 0 0.5 0.5 0.5 0 1 1 1 0.5 0.5 1 0.5 0.5 0.5 0 0.5 0 0 0 1 0.5 0.5 0.5 1 0.5 0.5 1 0 1 0.5 0.1647304 1 0.1570392 1 0.1379014 0 0.02682906 1 0.01913785 1 0 0 0.2106975 1 0.2030063 1 0.1838685 0 0.3016814 0.0958119 0.3016814 0.105413 0.2925503 0.1083799 0.2925503 0.1083799 0.2869069 0.1006124 0.2925503 0.09284502 0.1187633 1 0.1110721 1 0.09193426 0 0.07279622 1 0.06510502 1 0.04596716 0 0.2869069 0.04642248 0.3206349 0 0.3752078 0.01773184 0.3752078 0.01773184 0.3752078 0.07511317 0.3206349 0.09284502</float_array>
+          <technique_common>
+            <accessor source="#Cylinder-mesh-map-0-array" count="216" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Cylinder-mesh-vertices">
+          <input semantic="POSITION" source="#Cylinder-mesh-positions"/>
+        </vertices>
+        <triangles material="pinebark_tex-material" count="16">
+          <input semantic="VERTEX" source="#Cylinder-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cylinder-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cylinder-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 2 1 1 0 2 2 3 3 3 4 4 4 2 1 5 5 5 6 6 6 7 4 4 8 1 0 9 7 7 10 5 5 11 7 7 12 8 8 13 6 6 14 9 9 15 0 2 16 8 8 17 2 1 18 6 6 19 8 8 20 1 0 189 3 3 190 2 1 191 3 3 192 5 5 193 4 4 194 5 5 195 7 7 196 6 6 197 5 5 198 3 3 199 1 0 200 1 0 201 9 9 202 7 7 203 7 7 204 9 9 205 8 8 206 9 9 207 1 0 208 0 2 209 8 8 210 0 2 211 2 1 212 2 1 213 4 4 214 6 6 215</p>
+        </triangles>
+        <triangles material="pineleaves_tex-material" count="56">
+          <input semantic="VERTEX" source="#Cylinder-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Cylinder-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Cylinder-mesh-map-0" offset="2" set="0"/>
+          <p>18 10 21 13 11 22 17 12 23 16 13 24 11 14 25 18 10 26 10 15 27 16 13 28 18 10 29 14 16 30 18 10 31 12 17 32 13 11 33 18 10 34 15 18 35 18 10 36 14 16 37 10 15 38 12 17 39 18 10 40 17 12 41 18 10 42 11 14 43 15 18 44 27 19 45 22 20 46 26 21 47 25 22 48 20 23 49 27 19 50 19 24 51 25 22 52 27 19 53 23 25 54 27 19 55 21 26 56 22 20 57 27 19 58 24 27 59 27 19 60 23 25 61 19 24 62 21 26 63 27 19 64 26 21 65 27 19 66 20 23 67 24 27 68 36 28 69 31 29 70 35 30 71 34 31 72 29 32 73 36 28 74 28 33 75 34 31 76 36 28 77 32 34 78 36 28 79 30 35 80 31 29 81 36 28 82 33 36 83 36 28 84 32 34 85 28 33 86 30 35 87 36 28 88 35 30 89 36 28 90 29 32 91 33 36 92 45 37 93 40 38 94 44 39 95 43 40 96 38 41 97 45 37 98 37 42 99 43 40 100 45 37 101 41 43 102 45 37 103 39 44 104 40 38 105 45 37 106 42 45 107 45 37 108 41 43 109 37 42 110 39 44 111 45 37 112 44 39 113 45 37 114 38 41 115 42 45 116 54 46 117 49 47 118 53 48 119 52 49 120 47 50 121 54 46 122 46 51 123 52 49 124 54 46 125 50 52 126 54 46 127 48 53 128 49 47 129 54 46 130 51 54 131 54 46 132 50 52 133 46 51 134 48 53 135 54 46 136 53 48 137 54 46 138 47 50 139 51 54 140 63 55 141 58 56 142 62 57 143 61 58 144 56 59 145 63 55 146 55 60 147 61 58 148 63 55 149 59 61 150 63 55 151 57 62 152 58 56 153 63 55 154 60 63 155 63 55 156 59 61 157 55 60 158 57 62 159 63 55 160 62 57 161 63 55 162 56 59 163 60 63 164 72 64 165 67 65 166 71 66 167 70 67 168 65 68 169 72 64 170 64 69 171 70 67 172 72 64 173 68 70 174 72 64 175 66 71 176 67 65 177 72 64 178 69 72 179 72 64 180 68 70 181 64 69 182 66 71 183 72 64 184 71 66 185 72 64 186 65 68 187 69 72 188</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="pine_1" name="pine_1" type="NODE">
+        <matrix sid="transform">0.291378 0 0 0 0 0.291378 0 0 0 0 0.291378 0.2335038 0 0 0 1</matrix>
+        <instance_geometry url="#Cylinder-mesh" name="pine_1">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="pinebark_tex-material" target="#pinebark_tex-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="pineleaves_tex-material" target="#pineleaves_tex-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

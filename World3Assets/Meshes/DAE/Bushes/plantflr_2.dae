@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.1 commit date:2022-12-19, commit time:17:00, hash:55485cb379f7</authoring_tool>
+    </contributor>
+    <created>2023-02-28T17:13:04</created>
+    <modified>2023-02-28T17:13:04</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="plantflr2_tex-effect">
+      <profile_COMMON>
+        <newparam sid="plantflr_2img_png-surface">
+          <surface type="2D">
+            <init_from>plantflr_2img_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="plantflr_2img_png-sampler">
+          <sampler2D>
+            <source>plantflr_2img_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="plantflr_2img_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="plantflr_2img_png" name="plantflr_2img_png">
+      <init_from>plantflr_2img.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="plantflr2_tex-material" name="plantflr2_tex">
+      <instance_effect url="#plantflr2_tex-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plane_002-mesh" name="Plane.002">
+      <mesh>
+        <source id="Plane_002-mesh-positions">
+          <float_array id="Plane_002-mesh-positions-array" count="84">-1.571522 -0.2294871 0.2385801 0.160113 0 0.1008883 -1.571522 -0.229487 -0.1625514 0.1601132 0 -0.3002431 -0.6404526 0.08507603 0.2416051 -0.6404525 0.08507615 -0.1595264 -1.20585 -0.06666719 -0.1625514 -1.20585 -0.06666731 0.2385801 -1.494384 -0.4027276 0.04743504 0.160113 -0.1896377 -0.09025675 -1.657549 -0.03628021 0.0474351 0.1601132 0.2114937 -0.09025663 -0.6404526 -0.1045616 0.05045998 -0.6404525 0.2965699 0.0504601 -1.291877 0.1265395 0.0474351 -1.128712 -0.2399078 0.04743504 -0.6324468 0.2967486 -0.1931663 -0.2977626 -0.002570629 -0.1931663 -0.5718678 0.3644852 0.1975361 -0.2371835 0.06516581 0.1975361 -0.6958442 -0.2094687 0.1243402 -0.36116 0.04980117 0.2739102 -0.6352652 -0.07290774 -0.2479335 -0.3005809 0.1863622 -0.09836345 -1.13762 -0.2219037 -0.1622037 -0.8029357 -0.1971617 0.1360912 -1.077041 0.1618626 -0.2620041 -0.7423565 0.1866044 0.03629094</float_array>
+          <technique_common>
+            <accessor source="#Plane_002-mesh-positions-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_002-mesh-normals">
+          <float_array id="Plane_002-mesh-normals-array" count="84">0.105675 0.9944008 3.18889e-7 -0.0686993 0.9976375 2.90143e-7 -0.08859425 0.9960679 2.80258e-7 -0.3338894 0.9426124 2.70402e-7 -0.3341327 0.9425261 2.74902e-7 -0.4067618 0.9135343 2.78412e-7 -0.406762 0.9135342 2.78412e-7 0.08020663 -4.28852e-4 0.9967782 0.1731176 -2.71633e-7 0.9849011 0.08941757 -2.55105e-7 0.9959943 -0.002431333 -6.68904e-4 0.9999969 -0.002881705 -0.001283347 0.9999951 1.21797e-7 -2.00742e-7 1 1.27605e-7 -2.00742e-7 1 -0.6492961 -0.7260113 0.2265437 -0.6492961 -0.7260113 0.2265437 -0.6492961 -0.7260113 0.2265437 -0.6492964 0.7420736 0.1665564 -0.6492964 0.7420736 0.1665564 -0.6492964 0.7420737 0.1665564 -0.6492964 0.2857807 0.7048005 -0.6492964 0.2857808 0.7048004 -0.6492962 0.2857804 0.7048007 0.105675 0.9944007 3.22995e-7 0.1731177 -2.70614e-7 0.9849011 -0.6492962 -0.7260113 0.2265438 -0.6492965 0.7420735 0.1665564 -0.6492965 0.2857811 0.7048003</float_array>
+          <technique_common>
+            <accessor source="#Plane_002-mesh-normals-array" count="28" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_002-mesh-map-0">
+          <float_array id="Plane_002-mesh-map-0-array" count="108">0.3320882 5.70342e-5 0.6569574 0.5 0.3320882 0.5 0.3320882 0.7499714 0.6569574 0.5 0.6569574 0.7499714 0.3320882 0.7499714 0.6569573 0.9999429 0.3320882 0.9999429 0.3320882 0.5 0.6569574 5.69919e-5 0.6569574 0.5 0.3320882 0.5 0.6569574 0.7499714 0.3320882 0.7499714 0.3320882 0.9999429 0.6569574 0.7499714 0.6569573 0.9999429 0.6422434 0.3969443 1.093112 0.7860935 0.6422434 0.7860935 0.6422434 0.3969443 1.093112 0.7860935 0.6422434 0.7860935 0.675464 0.3762398 1.126332 -0.01290953 1.126332 0.3762398 0.3320882 5.70342e-5 0.6569574 5.69919e-5 0.6569574 0.5 0.3320882 0.7499714 0.3320882 0.5 0.6569574 0.5 0.3320882 0.7499714 0.6569574 0.7499714 0.6569573 0.9999429 0.3320882 0.5 0.3320882 5.70342e-5 0.6569574 5.69919e-5 0.3320882 0.5 0.6569574 0.5 0.6569574 0.7499714 0.3320882 0.9999429 0.3320882 0.7499714 0.6569574 0.7499714 0.6422434 0.3969443 1.093112 0.3969442 1.093112 0.7860935 0.6422434 0.3969443 1.093112 0.3969442 1.093112 0.7860935 0.675464 0.3762398 0.675464 -0.01290947 1.126332 -0.01290953</float_array>
+          <technique_common>
+            <accessor source="#Plane_002-mesh-map-0-array" count="54" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_002-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_002-mesh-positions"/>
+        </vertices>
+        <triangles material="plantflr2_tex-material" count="18">
+          <input semantic="VERTEX" source="#Plane_002-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_002-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_002-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 5 1 1 4 2 2 7 3 3 5 1 4 6 4 5 7 3 6 2 5 7 0 6 8 12 7 9 11 8 10 13 9 11 12 7 12 14 10 13 15 11 14 8 12 15 14 10 16 10 13 17 17 14 18 18 15 19 16 16 20 21 17 21 22 18 22 20 19 23 24 20 24 27 21 25 26 22 26 1 0 27 3 23 28 5 1 29 7 3 30 4 2 31 5 1 32 7 3 33 6 4 34 2 5 35 12 7 36 9 24 37 11 8 38 12 7 39 13 9 40 14 10 41 8 12 42 15 11 43 14 10 44 17 14 45 19 25 46 18 15 47 21 17 48 23 26 49 22 18 50 24 20 51 25 27 52 27 21 53</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="plantflr_2" name="plantflr_2" type="NODE">
+        <matrix sid="transform">7.54979e-8 -1 7.54979e-8 0 0 7.54979e-8 1 -0.009420823 -1 -7.54979e-8 5.69993e-15 0 0 0 0 1</matrix>
+        <instance_geometry url="#Plane_002-mesh" name="plantflr_2">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="plantflr2_tex-material" target="#plantflr2_tex-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
