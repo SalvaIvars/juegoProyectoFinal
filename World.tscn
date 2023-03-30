@@ -48,6 +48,7 @@ background_sky = SubResource( 8 )
 background_energy = 1.03
 
 [node name="World" type="Spatial"]
+pause_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.322205, -0.735008, 0.478851 )
 
 [node name="Environment" type="Spatial" parent="."]

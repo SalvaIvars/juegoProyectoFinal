@@ -4,7 +4,7 @@ func _on_1_pressed():
 	get_tree().change_scene("res://World.tscn")
 
 func _on_2_pressed():
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://World2.tscn")
 
 func _on_3_pressed():
 	get_tree().change_scene("res://World.tscn")
