@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sbushnak_0.obj-6d722c3f45cff9f808149fc3ca358a03.mesh"
+
+[deps]
+
+files=[ "res://.import/sbushnak_0.obj-6d722c3f45cff9f808149fc3ca358a03.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/bushes/sbushnak_0.obj"
+dest_files=[ "res://.import/sbushnak_0.obj-6d722c3f45cff9f808149fc3ca358a03.mesh", "res://.import/sbushnak_0.obj-6d722c3f45cff9f808149fc3ca358a03.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

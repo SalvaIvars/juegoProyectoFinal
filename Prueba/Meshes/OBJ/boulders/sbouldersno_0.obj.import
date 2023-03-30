@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/sbouldersno_0.obj-d2c1dff402f45e7e7361c6e83ef6f452.mesh"
+
+[deps]
+
+files=[ "res://.import/sbouldersno_0.obj-d2c1dff402f45e7e7361c6e83ef6f452.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/boulders/sbouldersno_0.obj"
+dest_files=[ "res://.import/sbouldersno_0.obj-d2c1dff402f45e7e7361c6e83ef6f452.mesh", "res://.import/sbouldersno_0.obj-d2c1dff402f45e7e7361c6e83ef6f452.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

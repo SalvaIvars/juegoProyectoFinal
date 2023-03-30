@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/plantflr_2.obj-5e696051255d421792a5b3993d25200d.mesh"
+
+[deps]
+
+files=[ "res://.import/plantflr_2.obj-5e696051255d421792a5b3993d25200d.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/bushes/plantflr_2.obj"
+dest_files=[ "res://.import/plantflr_2.obj-5e696051255d421792a5b3993d25200d.mesh", "res://.import/plantflr_2.obj-5e696051255d421792a5b3993d25200d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

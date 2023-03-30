@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/birchnak_1.obj-4372afc70e04c06c42f64968e835f9bf.mesh"
+
+[deps]
+
+files=[ "res://.import/birchnak_1.obj-4372afc70e04c06c42f64968e835f9bf.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/trees/birchnak_1.obj"
+dest_files=[ "res://.import/birchnak_1.obj-4372afc70e04c06c42f64968e835f9bf.mesh", "res://.import/birchnak_1.obj-4372afc70e04c06c42f64968e835f9bf.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
