@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pinesno_1.obj-987ca247c48c61051ab7bc56c4bd90bb.mesh"
+
+[deps]
+
+files=[ "res://.import/pinesno_1.obj-987ca247c48c61051ab7bc56c4bd90bb.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/trees/pinesno_1.obj"
+dest_files=[ "res://.import/pinesno_1.obj-987ca247c48c61051ab7bc56c4bd90bb.mesh", "res://.import/pinesno_1.obj-987ca247c48c61051ab7bc56c4bd90bb.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

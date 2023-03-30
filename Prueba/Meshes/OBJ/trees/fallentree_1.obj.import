@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/fallentree_1.obj-d1fcd514c7619bc1b4edeefe7334042c.mesh"
+
+[deps]
+
+files=[ "res://.import/fallentree_1.obj-d1fcd514c7619bc1b4edeefe7334042c.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/trees/fallentree_1.obj"
+dest_files=[ "res://.import/fallentree_1.obj-d1fcd514c7619bc1b4edeefe7334042c.mesh", "res://.import/fallentree_1.obj-d1fcd514c7619bc1b4edeefe7334042c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/landdns.obj-9fb6cf29e965cd6e65beeaacfef15b9c.mesh"
+
+[deps]
+
+files=[ "res://.import/landdns.obj-9fb6cf29e965cd6e65beeaacfef15b9c.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/skies/landdns.obj"
+dest_files=[ "res://.import/landdns.obj-9fb6cf29e965cd6e65beeaacfef15b9c.mesh", "res://.import/landdns.obj-9fb6cf29e965cd6e65beeaacfef15b9c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

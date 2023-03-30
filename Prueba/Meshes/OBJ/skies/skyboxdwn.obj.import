@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/skyboxdwn.obj-066f8830750d6f2d80baa7496996119d.mesh"
+
+[deps]
+
+files=[ "res://.import/skyboxdwn.obj-066f8830750d6f2d80baa7496996119d.mesh" ]
+
+source_file="res://Prueba/Meshes/OBJ/skies/skyboxdwn.obj"
+dest_files=[ "res://.import/skyboxdwn.obj-066f8830750d6f2d80baa7496996119d.mesh", "res://.import/skyboxdwn.obj-066f8830750d6f2d80baa7496996119d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

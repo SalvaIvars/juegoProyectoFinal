@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.1 commit date:2022-12-19, commit time:17:00, hash:55485cb379f7</authoring_tool>
+    </contributor>
+    <created>2023-02-28T17:07:29</created>
+    <modified>2023-02-28T17:07:29</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="grasstro0_tex-effect">
+      <profile_COMMON>
+        <newparam sid="grasstro0img_png-surface">
+          <surface type="2D">
+            <init_from>grasstro0img_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="grasstro0img_png-sampler">
+          <sampler2D>
+            <source>grasstro0img_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="grasstro0img_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="grasstro0img_png" name="grasstro0img_png">
+      <init_from>grasstro0img.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="grasstro0_tex-material" name="grasstro0_tex">
+      <instance_effect url="#grasstro0_tex-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Plane_001-mesh" name="Plane.001">
+      <mesh>
+        <source id="Plane_001-mesh-positions">
+          <float_array id="Plane_001-mesh-positions-array" count="36">-1.8 -1 0 0.1999999 -1 0 -1.8 1 0 0.1999999 1 0 0.0314638 -0.9230899 1.840358 0.7960866 0.369384 0.5194246 -1.407785 -1.403363 0.5373218 -0.6431622 -0.1108891 -0.7836112 -1.44701 1.324764 0.6254297 -0.6414518 0.1499909 -0.7784877 -0.002995371 0.7898272 1.901622 0.8025634 -0.3849456 0.4977042</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_001-mesh-normals">
+          <float_array id="Plane_001-mesh-normals-array" count="21">0 0 1 -0.5796369 0.7243703 0.3732408 -0.579637 0.7243703 0.3732408 -0.5625604 -0.7638311 0.3163666 -0.5625604 -0.7638311 0.3163667 -0.5796369 0.7243703 0.3732408 -0.5625604 -0.7638311 0.3163666</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-normals-array" count="7" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_001-mesh-map-0">
+          <float_array id="Plane_001-mesh-map-0-array" count="36">0.9999999 1 0 -1.19209e-7 1 0 0.9999999 1 0 -1.19209e-7 1 0 0.9999999 1 0 -1.19209e-7 1 0 0.9999999 1 -1.19209e-7 0.9999999 0 -1.19209e-7 0.9999999 1 -1.19209e-7 0.9999999 0 -1.19209e-7 0.9999999 1 -1.19209e-7 0.9999999 0 -1.19209e-7</float_array>
+          <technique_common>
+            <accessor source="#Plane_001-mesh-map-0-array" count="18" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_001-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_001-mesh-positions"/>
+        </vertices>
+        <triangles material="grasstro0_tex-material" count="6">
+          <input semantic="VERTEX" source="#Plane_001-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_001-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_001-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 2 0 1 0 0 2 5 1 3 6 1 4 4 2 5 9 3 6 10 3 7 8 4 8 1 0 9 3 0 10 2 0 11 5 1 12 7 5 13 6 1 14 9 3 15 11 6 16 10 3 17</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="grasstro_0" name="grasstro_0" type="NODE">
+        <matrix sid="transform">-0.1426098 -0.480346 -0.1217166 0 0.3757668 -0.1873962 0.299277 0 -0.3230271 -0.005928962 0.4018745 0 0 0 0 1</matrix>
+        <instance_geometry url="#Plane_001-mesh" name="grasstro_0">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="grasstro0_tex-material" target="#grasstro0_tex-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
