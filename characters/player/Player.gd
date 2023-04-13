@@ -42,8 +42,6 @@ func _process(_delta):
 	var move_vec = Vector3()
 	if Input.is_action_pressed("move_forward"):
 		move_vec += Vector3.FORWARD
-		if Input.is_action_just_pressed("dash"):
-			character_mover.dash()
 	if Input.is_action_pressed("move_backwards"):
 		move_vec += Vector3.BACK
 	if Input.is_action_pressed("move_left"):
@@ -80,3 +78,4 @@ func heal(amount):
 func kill():
 	dead = true
 	character_mover.freeze()
+	get_node("DeathMenu").set_is_paused(true)

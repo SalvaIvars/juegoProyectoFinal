@@ -1,0 +1,151 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Textures/128x128/Stone/Stone_17-128x128.png" type="Texture" id=2]
+[ext_resource path="res://environment/raw_assets/grass_lowres.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Trees/Assets/oak0.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Trees/Assets/poplarnak_1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Worlds/Scripts/Level2Camera.gd" type="Script" id=6]
+[ext_resource path="res://Levels/Rocks/Assets/mboulderdes_0.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/Altar/Assets/AltarWithSound.tscn" type="PackedScene" id=8]
+
+[sub_resource type="PanoramaSky" id=11]
+
+[sub_resource type="Environment" id=12]
+background_mode = 1
+background_sky = SubResource( 11 )
+background_color = Color( 0.54902, 0.0392157, 0.0392157, 1 )
+ambient_light_color = Color( 0.584314, 0.266667, 0.266667, 1 )
+fog_enabled = true
+fog_color = Color( 0.588235, 0.0784314, 0.0784314, 1 )
+fog_sun_color = Color( 0.588235, 0.0784314, 0.0784314, 1 )
+fog_sun_amount = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 30.0
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 50, 50, 1 )
+
+[sub_resource type="CubeMesh" id=13]
+material = SubResource( 7 )
+size = Vector3( 200, 2, 100 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 70, 70, 70 )
+
+[sub_resource type="ConcavePolygonShape" id=15]
+data = PoolVector3Array( -100, 1, 50, 100, 1, 50, -100, -1, 50, 100, 1, 50, 100, -1, 50, -100, -1, 50, 100, 1, -50, -100, 1, -50, 100, -1, -50, -100, 1, -50, -100, -1, -50, 100, -1, -50, 100, 1, 50, 100, 1, -50, 100, -1, 50, 100, 1, -50, 100, -1, -50, 100, -1, 50, -100, 1, -50, -100, 1, 50, -100, -1, -50, -100, 1, 50, -100, -1, 50, -100, -1, -50, 100, 1, 50, -100, 1, 50, 100, 1, -50, -100, 1, 50, -100, 1, -50, 100, 1, -50, -100, -1, 50, 100, -1, 50, -100, -1, -50, 100, -1, 50, 100, -1, -50, -100, -1, -50 )
+
+[node name="Spatial" type="Spatial"]
+script = ExtResource( 6 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.75, -115.056, 5.70854, 125.545 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="AltarWithMusic" parent="Environment" instance=ExtResource( 8 )]
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, -102.271, 1.51011, 194.068 )
+
+[node name="Ground" type="MeshInstance" parent="Environment"]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 8, -0.636093, -0.185982, 0.14489 )
+mesh = SubResource( 13 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 14 )
+
+[node name="StaticBody" type="StaticBody" parent="Environment/Ground"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/Ground/StaticBody"]
+shape = SubResource( 15 )
+
+[node name="Trees" type="Spatial" parent="Environment"]
+
+[node name="oaknak_0" parent="Environment/Trees" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, -35.156, 1, 51.191 )
+
+[node name="poplarnak_1" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -31.885, 0.814026, -203.838 )
+
+[node name="poplarnak_2" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -17.2036, 0.814026, -159.665 )
+
+[node name="poplarnak_3" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -115.362, 0.814026, -189.592 )
+
+[node name="poplarnak_4" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 109.809, 0.814026, -105.456 )
+
+[node name="poplarnak_5" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 124.491, 0.814026, -61.2829 )
+
+[node name="poplarnak_6" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 26.3319, 0.814026, -91.2104 )
+
+[node name="poplarnak_7" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -163.199, 0.814026, -62.6932 )
+
+[node name="poplarnak_8" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -148.517, 0.814026, -18.5198 )
+
+[node name="poplarnak_9" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -246.676, 0.814026, -48.4473 )
+
+[node name="poplarnak_10" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 67.8093, 0.814026, 59.8435 )
+
+[node name="poplarnak_11" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, 82.4907, 0.814026, 104.017 )
+
+[node name="poplarnak_12" parent="Environment/Trees" instance=ExtResource( 5 )]
+transform = Transform( 2, 0, 0, 0, 3, 0, 0, 0, 2, -15.668, 0.814026, 74.0895 )
+
+[node name="Walls" type="Spatial" parent="Environment"]
+
+[node name="Wall" type="Spatial" parent="Environment/Walls"]
+
+[node name="mboulderdes_0" parent="Environment/Walls/Wall" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 158.175, 0.814018, 399.017 )
+
+[node name="mboulderdes_1" parent="Environment/Walls/Wall" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 125.344, 0.814018, 399.017 )
+
+[node name="mboulderdes_2" parent="Environment/Walls/Wall" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 181.895, 0.814018, 399.017 )
+
+[node name="mboulderdes_3" parent="Environment/Walls/Wall" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 86.9973, 0.814018, 399.017 )
+
+[node name="Wall2" type="Spatial" parent="Environment/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -131.29, 0, 0 )
+
+[node name="mboulderdes_0" parent="Environment/Walls/Wall2" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 158.175, 0.814018, 399.017 )
+
+[node name="mboulderdes_1" parent="Environment/Walls/Wall2" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 125.344, 0.814018, 399.017 )
+
+[node name="mboulderdes_2" parent="Environment/Walls/Wall2" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 181.895, 0.814018, 399.017 )
+
+[node name="mboulderdes_3" parent="Environment/Walls/Wall2" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 86.9973, 0.814018, 399.017 )
+
+[node name="Wall3" type="Spatial" parent="Environment/Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -267.177, 0, 0 )
+
+[node name="mboulderdes_0" parent="Environment/Walls/Wall3" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 158.175, 0.814018, 399.017 )
+
+[node name="mboulderdes_1" parent="Environment/Walls/Wall3" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 125.344, 0.814018, 399.017 )
+
+[node name="mboulderdes_2" parent="Environment/Walls/Wall3" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 181.895, 0.814018, 399.017 )
+
+[node name="mboulderdes_3" parent="Environment/Walls/Wall3" instance=ExtResource( 7 )]
+transform = Transform( -0.517087, 0, -19.8928, 0, 20, 0, 4.97319, 0, -2.06835, 86.9973, 0.814018, 399.017 )

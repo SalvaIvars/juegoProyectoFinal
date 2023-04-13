@@ -91,7 +91,6 @@ func process_state_chase(delta):
 
 func process_state_attack(delta):
 	character_mover.set_move_vec(Vector3.ZERO)
-	
 	if can_attack:
 		if !within_dis_of_player(attack_range) or !can_see_player():
 			set_state_chase()
@@ -131,7 +130,7 @@ func player_within_angle(angle: float):
 func has_los_player():
 	var our_pos = global_transform.origin + Vector3.UP
 	var player_pos = player.global_transform.origin + Vector3.UP
-	
+	var prueba_player_pos = our_pos 
 	var space_state = get_world().get_direct_space_state()
 	var result = space_state.intersect_ray(our_pos, player_pos, [], 1)
 	if result:
