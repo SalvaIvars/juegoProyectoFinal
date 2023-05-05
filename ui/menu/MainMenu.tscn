@@ -1,9 +1,41 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/KleintenDynFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/menu/MainMenu.gd" type="Script" id=2]
 
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "ChangeLevel"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelAnimation:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.427451 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelAnimation:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -63,6 +95,27 @@ margin_right = 108.0
 margin_bottom = 202.0
 custom_fonts/font = ExtResource( 1 )
 text = "Quit"
+
+[node name="Main3D" type="Spatial" parent="."]
+
+[node name="LevelAnimation" type="ColorRect" parent="."]
+margin_right = 1028.0
+margin_bottom = 607.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="LevelAnimation"]
+margin_left = 449.0
+margin_top = 240.0
+margin_right = 576.0
+margin_bottom = 315.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/normal = SubResource( 2 )
+text = "LEVEL 1
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ChangeLevel = SubResource( 3 )
+anims/RESET = SubResource( 4 )
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Level" to="." method="_on_Level_pressed"]

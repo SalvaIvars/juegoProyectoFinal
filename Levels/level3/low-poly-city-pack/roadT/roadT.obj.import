@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/roadT.obj-f1dcfcc5ca8de9006d2668c69c0fd794.mesh"
+
+[deps]
+
+files=[ "res://.import/roadT.obj-f1dcfcc5ca8de9006d2668c69c0fd794.mesh" ]
+
+source_file="res://Levels/level3/low-poly-city-pack/roadT/roadT.obj"
+dest_files=[ "res://.import/roadT.obj-f1dcfcc5ca8de9006d2668c69c0fd794.mesh", "res://.import/roadT.obj-f1dcfcc5ca8de9006d2668c69c0fd794.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

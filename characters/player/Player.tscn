@@ -318,7 +318,7 @@ attack_rate = 0.1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0689657 )
 
 [node name="machinegun" parent="Camera/WeaponManager/Weapons/MachineGun/Graphics" instance=ExtResource( 6 )]
-transform = Transform( 0.149456, 0, 0, 0, 0.149456, 0, 0, 0, 0.149456, 0, 0, 0 )
+transform = Transform( 0.149456, 0, 0, 0, 0.149456, 0, 0, 0, 0.149456, 0, 0, 0.0481809 )
 
 [node name="MuzzleFlash" type="Spatial" parent="Camera/WeaponManager/Weapons/MachineGun/Graphics"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051043, -0.256063 )
