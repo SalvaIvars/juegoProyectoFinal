@@ -1,0 +1,223 @@
+{
+  "asset": {
+    "generator": "UnityGLTF",
+    "version": "2.0"
+  },
+  "extensionsUsed": [
+    "KHR_texture_transform"
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "nodes": [
+        0
+      ],
+      "name": "2"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 822,
+      "type": "VEC3",
+      "max": [
+        8.2353515625,
+        11.292008399963379,
+        5.9367327690124512
+      ],
+      "min": [
+        -7.498748779296875,
+        -0.25538799166679382,
+        -9.293182373046875
+      ]
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 822,
+      "type": "VEC3",
+      "max": [
+        0.99771487712860107,
+        0.99821221828460693,
+        0.98818099498748779
+      ],
+      "min": [
+        -0.98311859369277954,
+        -0.9980587363243103,
+        -0.99156183004379272
+      ]
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 822,
+      "type": "VEC4",
+      "max": [
+        0.99769526720047,
+        0.9991346001625061,
+        0.99993646144866943,
+        1.0
+      ],
+      "min": [
+        -0.986185610294342,
+        -0.99847978353500366,
+        -0.98251664638519287,
+        1.0
+      ]
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 822,
+      "type": "VEC2",
+      "max": [
+        0.984375,
+        1.0
+      ],
+      "min": [
+        0.015625,
+        -11.675390243530273
+      ]
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 822,
+      "type": "VEC2",
+      "max": [
+        0.998130738735199,
+        0.99609375
+      ],
+      "min": [
+        0.00390625,
+        0.014334619045257568
+      ]
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5123,
+      "count": 1692,
+      "type": "SCALAR",
+      "max": [
+        821.0
+      ],
+      "min": [
+        0.0
+      ]
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "2.bin",
+      "byteLength": 49416
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 9864,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 9864,
+      "byteLength": 9864,
+      "byteStride": 12,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 19728,
+      "byteLength": 13152,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 32880,
+      "byteLength": 6576,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 39456,
+      "byteLength": 6576,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 46032,
+      "byteLength": 3384,
+      "target": 34963
+    }
+  ],
+  "images": [
+    {
+      "uri": "BarkTex.jpg",
+      "name": "BarkTex"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0,
+          "extensions": {
+            "KHR_texture_transform": {}
+          }
+        },
+        "metallicFactor": 0.0
+      },
+      "name": "BarkMat3"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4
+          },
+          "indices": 5,
+          "material": 0
+        }
+      ],
+      "name": "DeadTreeCreator1"
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "rotation": [
+        0.0,
+        -0.5681477,
+        0.0,
+        0.8229266
+      ],
+      "translation": [
+        112.799,
+        -251.45,
+        988.5
+      ],
+      "name": "DeadTreeCreator1"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9728,
+      "minFilter": 9728
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0,
+      "name": "BarkTex"
+    }
+  ]
+}

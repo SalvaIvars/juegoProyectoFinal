@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/waterTank.obj-f3e9bd5f5ab02b35ebf5547476554515.mesh"
+
+[deps]
+
+files=[ "res://.import/waterTank.obj-f3e9bd5f5ab02b35ebf5547476554515.mesh" ]
+
+source_file="res://Levels/level3/low-poly-city-pack/waterTank/waterTank.obj"
+dest_files=[ "res://.import/waterTank.obj-f3e9bd5f5ab02b35ebf5547476554515.mesh", "res://.import/waterTank.obj-f3e9bd5f5ab02b35ebf5547476554515.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/trafficLight.obj-7089818f6f533d7bbec6461e9266929e.mesh"
+
+[deps]
+
+files=[ "res://.import/trafficLight.obj-7089818f6f533d7bbec6461e9266929e.mesh" ]
+
+source_file="res://Levels/level3/low-poly-city-pack/trafficLights/trafficLight.obj"
+dest_files=[ "res://.import/trafficLight.obj-7089818f6f533d7bbec6461e9266929e.mesh", "res://.import/trafficLight.obj-7089818f6f533d7bbec6461e9266929e.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

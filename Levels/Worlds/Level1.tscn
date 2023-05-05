@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://environment/raw_assets/grass_lowres.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Levels/Altar/Assets/Skull.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Levels/Altar/Assets/Altar.tscn" type="PackedScene" id=16]
 [ext_resource path="res://characters/enemies/BirdMonster.tscn" type="PackedScene" id=17]
+[ext_resource path="res://ui/menu/PauseMenu.tscn" type="PackedScene" id=18]
 [ext_resource path="res://pickups/MachineGunPickup.tscn" type="PackedScene" id=20]
 
 [sub_resource type="PanoramaSky" id=14]
@@ -3646,3 +3647,6 @@ transform = Transform( 0.561982, 0, 0.827149, 0, 1, 0, -0.827149, 0, 0.561982, -
 
 [node name="BirdMonster9" parent="Navigation" instance=ExtResource( 17 )]
 transform = Transform( 0.756253, 0, -0.654279, 0, 1, 0, 0.654279, 0, 0.756253, -183.188, 0.814018, -448.868 )
+
+[node name="PauseMenu" parent="." instance=ExtResource( 18 )]
+visible = false
