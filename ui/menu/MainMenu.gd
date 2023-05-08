@@ -6,8 +6,7 @@ onready var background : ColorRect = $Background
 onready var center : CenterContainer= $CenterContainer
 onready var levelChangeAnimation : AnimationPlayer = $AnimationPlayer
 onready var levelChangeColorRect : ColorRect = $LevelAnimation
-onready var first_world = preload("res://Levels/Worlds/Level1.tscn")
-onready var second_world = preload("res://Levels/Worlds/Level1.tscn")
+onready var first_world = preload("res://Levels/level3/Level3.tscn")
 
 func _ready():
 	levelChangeColorRect.hide()
