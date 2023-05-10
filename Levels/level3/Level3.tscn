@@ -53,10 +53,10 @@ transform = Transform( 0.799307, 0, -0.600923, 0, 1, 0, 0.600923, 0, 0.799307, 1
 [node name="Environment" type="Spatial" parent="."]
 
 [node name="CarDusty" parent="Environment" instance=ExtResource( 8 )]
-transform = Transform( 3.8743e-07, 0, 2, 0, 2, 0, -2, 0, 3.8743e-07, -59.1198, 1.24485, 72.3892 )
+transform = Transform( 2.92061e-07, 0, 1.5, 0, 1.5, 0, -1.5, 0, 2.92061e-07, -59.1198, 1.24485, 72.3892 )
 
 [node name="CarDusty2" parent="Environment" instance=ExtResource( 8 )]
-transform = Transform( -1.91345, 0.364439, 0.453779, 0.485994, 1.85846, 0.556714, -0.32022, 0.642887, -1.86659, -57.0047, 1.24485, 80.283 )
+transform = Transform( -1.43508, 0.273329, 0.340333, 0.364495, 1.39385, 0.417536, -0.240164, 0.482166, -1.39994, -57.0047, 1.24485, 80.283 )
 
 [node name="Ground" type="MeshInstance" parent="Environment"]
 transform = Transform( 1.79089, 0, 0, 0, 0.1, 0, 0, 0, 5.83691, -0.641417, 0.997354, 229.672 )

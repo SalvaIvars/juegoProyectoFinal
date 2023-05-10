@@ -484,7 +484,8 @@ margin_right = 183.0
 margin_bottom = 107.0
 custom_fonts/font = ExtResource( 22 )
 text = "Health: 0
-Ammo: 0"
+Ammo: 0
+FPS: 0"
 script = ExtResource( 23 )
 
 [node name="DeathMenu" parent="." instance=ExtResource( 24 )]
