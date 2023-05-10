@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://ui/KleintenDynFont.tres" type="DynamicFont" id=22]
 [ext_resource path="res://characters/Player/StatsDisplay.gd" type="Script" id=23]
 [ext_resource path="res://ui/menu/DeathMenu.tscn" type="PackedScene" id=24]
+[ext_resource path="res://ui/menu/PauseMenu.tscn" type="PackedScene" id=25]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -489,6 +490,9 @@ FPS: 0"
 script = ExtResource( 23 )
 
 [node name="DeathMenu" parent="." instance=ExtResource( 24 )]
+visible = false
+
+[node name="PauseMenu" parent="." instance=ExtResource( 25 )]
 visible = false
 
 [connection signal="ammo_changed" from="Camera/WeaponManager" to="CanvasLayer/StatsDisplay" method="update_ammo"]

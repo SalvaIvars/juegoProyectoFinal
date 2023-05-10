@@ -2,8 +2,6 @@ extends Control
 
 var is_paused = false setget set_is_paused
 
-
-
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -30,6 +30,10 @@ config/name="ProyectoFinal"
 run/main_scene="res://ui/menu/Intro.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+mouse_cursor/custom_image="res://Icons/PointyFinger.png"
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
