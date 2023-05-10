@@ -18,3 +18,4 @@ func update_display():
 	if ammo < 0:
 		ammo_amnt = "inf"
 	text += "\nAmmo: " + ammo_amnt
+
