@@ -1,9 +1,29 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://ui/KleintenDynFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://ui/menu/MainMenu.gd" type="Script" id=2]
+[ext_resource path="res://ui/Spoikofo-filled.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 80
+font_data = ExtResource( 3 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -19,7 +39,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0.427451 ) ]
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -46,7 +66,7 @@ script = ExtResource( 2 )
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.156863, 0.14902, 0.14902, 1 )
+color = Color( 0, 0, 0, 1 )
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 pause_mode = 2
@@ -55,45 +75,45 @@ anchor_bottom = 1.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 pause_mode = 2
-margin_left = 458.0
-margin_top = 199.0
-margin_right = 566.0
-margin_bottom = 401.0
+margin_left = 460.0
+margin_top = 205.0
+margin_right = 563.0
+margin_bottom = 394.0
 custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
-margin_right = 108.0
-margin_bottom = 36.0
+margin_right = 103.0
+margin_bottom = 38.0
 theme = SubResource( 1 )
-custom_fonts/font = ExtResource( 1 )
-text = "Juego"
+custom_fonts/font = SubResource( 5 )
+text = "SIL"
 align = 1
 valign = 1
 
 [node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
-margin_top = 46.0
-margin_right = 108.0
-margin_bottom = 46.0
+margin_top = 48.0
+margin_right = 103.0
+margin_bottom = 48.0
 
 [node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 56.0
-margin_right = 108.0
-margin_bottom = 98.0
-custom_fonts/font = ExtResource( 1 )
+margin_top = 58.0
+margin_right = 103.0
+margin_bottom = 95.0
+custom_fonts/font = SubResource( 6 )
 text = "Play"
 
 [node name="Level" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 108.0
-margin_right = 108.0
-margin_bottom = 150.0
-custom_fonts/font = ExtResource( 1 )
+margin_top = 105.0
+margin_right = 103.0
+margin_bottom = 142.0
+custom_fonts/font = SubResource( 7 )
 text = "Levels"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 160.0
-margin_right = 108.0
-margin_bottom = 202.0
-custom_fonts/font = ExtResource( 1 )
+margin_top = 152.0
+margin_right = 103.0
+margin_bottom = 189.0
+custom_fonts/font = SubResource( 8 )
 text = "Quit"
 
 [node name="Main3D" type="Spatial" parent="."]
@@ -104,11 +124,11 @@ margin_bottom = 607.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Label" type="Label" parent="LevelAnimation"]
-margin_left = 449.0
+margin_left = 420.0
 margin_top = 240.0
-margin_right = 576.0
-margin_bottom = 315.0
-custom_fonts/font = ExtResource( 1 )
+margin_right = 641.0
+margin_bottom = 365.0
+custom_fonts/font = SubResource( 9 )
 custom_styles/normal = SubResource( 2 )
 text = "LEVEL 1
 "

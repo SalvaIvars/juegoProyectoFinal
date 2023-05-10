@@ -35,6 +35,8 @@ func _process(_delta):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
+	if Input.is_action_just_pressed("pause"):
+		get_node("PauseMenu").set_is_paused(true)
 	
 	if dead:
 		return
