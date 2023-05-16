@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Assault(loop) - angry - tension - battle.mp3-ee9359ff082a82a0c003df8aa8f7f496.mp3str"
+
+[deps]
+
+source_file="res://Music/Assault(loop) - angry - tension - battle.mp3"
+dest_files=[ "res://.import/Assault(loop) - angry - tension - battle.mp3-ee9359ff082a82a0c003df8aa8f7f496.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

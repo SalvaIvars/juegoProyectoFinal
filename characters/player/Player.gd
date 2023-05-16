@@ -31,6 +31,8 @@ func _ready():
 	weapon_manager.init($Camera/FirePoint, [self])
 
 func _process(_delta):
+	if self.transform.origin.y < -25:
+		kill()
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
