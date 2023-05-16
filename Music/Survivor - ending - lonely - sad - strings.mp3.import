@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Survivor - ending - lonely - sad - strings.mp3-4f9d0f8fd8e5e51c62cd620495cdb465.mp3str"
+
+[deps]
+
+source_file="res://Music/Survivor - ending - lonely - sad - strings.mp3"
+dest_files=[ "res://.import/Survivor - ending - lonely - sad - strings.mp3-4f9d0f8fd8e5e51c62cd620495cdb465.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

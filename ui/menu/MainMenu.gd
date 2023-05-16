@@ -40,3 +40,4 @@ func load_level(level_name : String):
 		yield(get_tree().create_timer(2), "timeout")
 		main_3d.add_child(level_instance)
 		levelChangeColorRect.hide()
+		$AudioStreamPlayer2D.stop()
