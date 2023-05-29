@@ -6,14 +6,14 @@ onready var background : ColorRect = $Background
 onready var center : CenterContainer= $CenterContainer
 onready var levelChangeAnimation : AnimationPlayer = $AnimationPlayer
 onready var levelChangeColorRect : ColorRect = $LevelAnimation
-onready var first_world = preload("res://Levels/level3/Level3.tscn")
+onready var first_world = preload("res://Levels/Level2/Level2.tscn")
 
 var loader
 var new_scene
 
 func _ready():
 	levelChangeColorRect.hide()
-	loader = ResourceLoader.load_interactive("res://Levels/level3/Level3.tscn")
+	loader = ResourceLoader.load_interactive("res://Levels/Level2/Level2.tscn")
 	
 func change():
 	var err = loader.poll()
