@@ -30,6 +30,9 @@ func init(_fire_point: Spatial, _bodies_to_exclude: Array):
 	
 	switch_to_weapon_slot(WEAPON_SLOTS.MACHETE)
 
+func remove_machinegun():
+	slots_unlocked[WEAPON_SLOTS.MACHINE_GUN] = false
+
 func attack(attack_input_just_pressed: bool, attack_input_held: bool):
 	if cur_weapon.has_method("attack"):
 		cur_weapon.attack(attack_input_just_pressed, attack_input_held)

@@ -109,6 +109,7 @@ text = "Quit"
 [node name="Main3D" type="Spatial" parent="."]
 
 [node name="LevelAnimation" type="ColorRect" parent="."]
+visible = false
 margin_right = 1028.0
 margin_bottom = 607.0
 color = Color( 0, 0, 0, 1 )

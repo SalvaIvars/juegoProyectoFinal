@@ -21,7 +21,6 @@ var dead = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	character_mover.init(self)
-	
 	pickup_manager.max_player_health = health_manager.max_health
 	health_manager.connect("health_changed", pickup_manager, "update_player_health")
 	pickup_manager.connect("got_pickup", weapon_manager, "get_pickup")
@@ -29,8 +28,54 @@ func _ready():
 	health_manager.init()
 	health_manager.connect("dead", self, "kill")
 	weapon_manager.init($Camera/FirePoint, [self])
+	$AudioMachineGun.pitch_scale = 0.01
+	start_player()
+	
+func start_player():
+	$CanvasLayer.hide()
+
+	Input.action_press("move_forward")
+	Input.action_press("attack")
+	load_camera()
+	yield(get_tree().create_timer(1), "timeout")
+	Input.action_release("move_forward")
+	Input.action_release("attack")
+	yield(get_tree().create_timer(2), "timeout")
+	$CanvasLayer.show()
+	weapon_manager.switch_to_weapon_slot(0)
+	weapon_manager.remove_machinegun()
+	$AudioMachineGun.pitch_scale = 1
+
+func load_camera():
+	for i in range(0, 45, 1):
+		yield(get_tree().create_timer(0.01), "timeout")
+		rotation_degrees.y -= mouse_sens * i
+		camera.rotation_degrees.x -= mouse_sens * i
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
+	for i in range(0, -40, -1):
+		yield(get_tree().create_timer(0.01), "timeout")
+		rotation_degrees.y -= mouse_sens * i
+		camera.rotation_degrees.x -= mouse_sens * i
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
+	
+func fake_click(position, flags=0):
+	var ev = InputEvent.new()
+	ev.type = InputEvent.MOUSE_BUTTON
+	ev.button_index=BUTTON_LEFT
+	ev.pressed = true
+	ev.global_pos = position
+	ev.meta = flags
+	get_tree().input_event(ev)
+	
+
+func simulate_key(which_key):
+  var ev = InputEvent.new()
+  ev.type = InputEvent.KEY
+  ev.scancode = which_key
+  get_tree().input_event(ev)
 
 func _process(_delta):
+
 	if self.transform.origin.y < -25:
 		kill()
 	if Input.is_action_just_pressed("exit"):

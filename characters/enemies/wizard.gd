@@ -132,10 +132,11 @@ func finish_attack():
 	can_attack = true
 	
 func invoke_minion():
-	var minion = wizard_minion.instance()
-	var add_distance = Vector3(1,0,0)
-	minion.transform.origin = self.global_transform.origin + add_distance
-	var prueba = get_parent().get_parent().get_node("Navigation").add_child(minion)
+	if can_see_player():
+		var minion = wizard_minion.instance()
+		var add_distance = Vector3(2,0,2)
+		minion.transform.origin = self.global_transform.origin + add_distance
+		var prueba = get_parent().get_parent().get_node("Navigation").add_child(minion)
 	
 
 func can_see_player():
