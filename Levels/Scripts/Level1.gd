@@ -18,7 +18,7 @@ func start_loading():
 	change()
 	
 func change():
-	get_tree().change_scene("res://Levels/level3/Level3.tscn")
+	get_tree().change_scene("res://Levels/level3/Level3_v2.tscn")
 
 func _ready():
 	yield(get_tree().create_timer(3), "timeout")
