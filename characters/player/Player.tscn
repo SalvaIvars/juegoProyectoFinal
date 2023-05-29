@@ -292,7 +292,6 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69244, 0 )
 current = true
-far = 150.0
 
 [node name="WeaponManager" type="Spatial" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.15642, -0.31398 )
@@ -493,6 +492,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.111322 )
 [node name="CharacterMover" parent="." instance=ExtResource( 2 )]
 
 [node name="HealthManager" parent="." instance=ExtResource( 3 )]
+max_health = 1000
 
 [node name="Sound" type="Spatial" parent="."]
 

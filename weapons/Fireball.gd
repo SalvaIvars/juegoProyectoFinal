@@ -16,10 +16,13 @@ func _physics_process(delta):
 		-global_transform.basis.z * speed * delta)
 	if collision:
 		var collider = collision.collider
-		if !collider.name in bodies_to_exclude and !collider.name.begins_with("ReptileMonster") and !collider.name.begins_with("BirdMonster"):	
+		if !collider.name in bodies_to_exclude and !collider.name.begins_with("ReptileMonster") and !collider.name.begins_with("Wizard")  and !collider.name.begins_with("BirdMonster"):
 			if collider.has_method("hurt"):
 				collider.hurt(impact_damage, -global_transform.basis.z)
 		$SmokeParticles.emitting = true
 		speed = 0
 		$Graphics.hide()
 		$CollisionShape.disabled = true
+
+
+

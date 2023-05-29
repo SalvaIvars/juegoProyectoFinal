@@ -8,17 +8,11 @@ var drag = 0.0
 export var jump_force = 30
 export var gravity = 60
 
-var numDash = 0
-var maxDashNumber = 2
-var dash_distance = 5
 var pressed_jump = false
 var move_vec : Vector3
 var velocity : Vector3
 var snap_vec : Vector3
 export var ignore_rotation = false
-
-signal movement_info
-
 var frozen = false
 
 func _ready():
@@ -33,11 +27,6 @@ func jump():
 func set_move_vec(_move_vec: Vector3):
 	move_vec = _move_vec.normalized()
 
-func dash():
-	if(numDash < maxDashNumber):
-		numDash += 1
-		body_to_move.translate(Vector3(0, 0, -dash_distance))
-
 func _physics_process(delta):
 	if frozen:
 		return
@@ -50,14 +39,15 @@ func _physics_process(delta):
 	var grounded = body_to_move.is_on_floor()
 	if grounded:
 		velocity.y = -0.01
-		numDash = 0
 	if grounded and pressed_jump:
 		velocity.y = jump_force
 		snap_vec = Vector3.ZERO
 	else:
-		snap_vec = Vector3.DOWN
+		if body_to_move.name.begins_with('Wizard'):
+			snap_vec = Vector3.ZERO
+		else:
+			snap_vec = Vector3.DOWN
 	pressed_jump = false
-	emit_signal("movement_info", velocity, grounded)
 
 func freeze():
 	frozen = true

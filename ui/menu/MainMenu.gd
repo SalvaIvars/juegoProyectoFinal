@@ -8,36 +8,27 @@ onready var levelChangeAnimation : AnimationPlayer = $AnimationPlayer
 onready var levelChangeColorRect : ColorRect = $LevelAnimation
 onready var first_world = preload("res://Levels/level3/Level3.tscn")
 
+var loader
+var new_scene
+
 func _ready():
 	levelChangeColorRect.hide()
+	loader = ResourceLoader.load_interactive("res://Levels/level3/Level3.tscn")
+	
+func change():
+	var err = loader.poll()
+	if err == ERR_FILE_EOF:
+		new_scene = loader.get_resource()
+		get_tree().change_scene_to(new_scene)
+		set_process(false)
+	elif err == OK:
+		print("Loading: ", loader.get_progress() / loader.get_progress_max())
+	else:
+		print("An error occurred while loading the scene.")
+		set_process(false)
 
 func _on_Play_pressed():
-	#get_tree().change_scene("res://Levels/Worlds/Level1.tscn")
-	load_level("Level1")
+	change()
 
 func _on_Quit_pressed():
 	get_tree().quit()
-
-func _on_Level_pressed():
-	get_tree().change_scene("res://ui/menu/LevelMenu.tscn")
-
-func unload_level():
-	if(is_instance_valid(level_instance)):
-		level_instance.queue_free()
-	level_instance = null
-	
-func load_level(level_name : String):
-	unload_level()
-	#var level_path := "res://Levels/Worlds/%s.tscn" % level_name
-	#var level_resource := load(level_path)
-	var level_resource = first_world
-	if (level_resource):
-		background.hide()
-		center.hide()
-		level_instance = level_resource.instance()
-		levelChangeColorRect.show()
-		$AnimationPlayer.play("ChangeLevel")
-		yield(get_tree().create_timer(2), "timeout")
-		main_3d.add_child(level_instance)
-		levelChangeColorRect.hide()
-		$AudioStreamPlayer2D.stop()
