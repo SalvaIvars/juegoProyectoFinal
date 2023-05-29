@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Music/Outlaws - violent - nervousness.mp3" type="AudioStream" id=1]
-
-[node name="Outlaws" type="Spatial"]
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource( 1 )

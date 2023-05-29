@@ -1,0 +1,2168 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Levels/level3/textures/grasstex2.jpg" type="Texture" id=1]
+[ext_resource path="res://environment/raw_assets/grass_lowres.png" type="Texture" id=2]
+[ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/level3/casa2expo/assets/TreeWall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://default_env.tres" type="Environment" id=5]
+[ext_resource path="res://Levels/level3/Assets/Bush.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Levels/level3/Assets/Grass.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/level3/Assets/ArbolLargo.tscn" type="PackedScene" id=9]
+[ext_resource path="res://pickups/MachineGunPickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/level3/Assets/ArbolGrande.tscn" type="PackedScene" id=11]
+[ext_resource path="res://pickups/ShotGunPickup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Music/Assault(loop) - angry - tension - battle.mp3" type="AudioStream" id=16]
+
+[sub_resource type="SpatialMaterial" id=23]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 50, 50, 1 )
+
+[sub_resource type="CubeMesh" id=16]
+material = SubResource( 23 )
+size = Vector3( 200, 2, 100 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 20, 20, 20 )
+
+[sub_resource type="ConcavePolygonShape" id=17]
+data = PoolVector3Array( -100, 1, 50, 100, 1, 50, -100, -1, 50, 100, 1, 50, 100, -1, 50, -100, -1, 50, 100, 1, -50, -100, 1, -50, 100, -1, -50, -100, 1, -50, -100, -1, -50, 100, -1, -50, 100, 1, 50, 100, 1, -50, 100, -1, 50, 100, 1, -50, 100, -1, -50, 100, -1, 50, -100, 1, -50, -100, 1, 50, -100, -1, -50, -100, 1, 50, -100, -1, 50, -100, -1, -50, 100, 1, 50, -100, 1, 50, 100, 1, -50, -100, 1, 50, -100, 1, -50, 100, 1, -50, -100, -1, 50, 100, -1, 50, -100, -1, -50, 100, -1, 50, 100, -1, -50, -100, -1, -50 )
+
+[node name="Level3" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.799307, 0, -0.600923, 0, 1, 0, 0.600923, 0, 0.799307, 18.7697, 3.02666, 21.22 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="Ground" type="MeshInstance" parent="Environment"]
+transform = Transform( 0.791015, 0, 0, 0, 0.1, 0, 0, 0, 5.83691, -42.0796, 0.997354, 229.672 )
+use_in_baked_light = true
+mesh = SubResource( 16 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="Environment/Ground"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/Ground/StaticBody"]
+shape = SubResource( 17 )
+
+[node name="Ground2" type="MeshInstance" parent="Environment"]
+transform = Transform( 0.609047, 0, 0, 0, 0.0543892, 0, 0, 0, 4.15194, 116.794, 0.997354, 229.672 )
+use_in_baked_light = true
+mesh = SubResource( 16 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="Environment/Ground2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/Ground2/StaticBody"]
+shape = SubResource( 17 )
+
+[node name="Ground3" type="MeshInstance" parent="Environment"]
+transform = Transform( 0.136718, 0, 0, 0, 0.0543892, 0, 0, 0, 0.492592, 45.8187, 0.997354, 353.196 )
+use_in_baked_light = true
+mesh = SubResource( 16 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="Environment/Ground3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/Ground3/StaticBody"]
+shape = SubResource( 17 )
+
+[node name="Zone1" type="Spatial" parent="Environment"]
+
+[node name="TreeWalls" type="Spatial" parent="Environment/Zone1"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -27.958, -1, 0 )
+
+[node name="TreeWallUnity1" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, -0.00540352, -0.616485, -0.0232849 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity2" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 0.707107, 0, -0.707106, 0, 1.5, 0, 1.41421, 0, 0.353554, 19.2372, -0.616485, 3.44632 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity3" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.258819, 0, -0.54309, 0, 1.5, 0, 1.93185, 0, -0.0727603, 32.0188, -0.616485, 23.1056 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity4" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.866025, 0, 0.681385, 0, 1.5, 0, -1, 0, -0.590096, 30.6334, -0.616485, 52.5454 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity5" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.866024, 0, 0.681386, 0, 1.5, 0, -1, 0, -0.590095, 17.7768, -0.616485, 37.9252 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.0169983 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity6" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.994638, 0, 0.202776, 0, 1.5, 0, -0.206834, 0, -0.97512, 4.89135, -0.616485, 25.15 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity7" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 1, 0, 0, 0, 1.5, 0, 0, 0, 1, -20.0054, -0.616485, -0.0232849 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity8" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 0.5, 0, 0.635489, 0, 1.5, 0, -1.73205, 0, 0.18345, -30.5054, -0.616485, 29.4292 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 2.84217e-14, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.0169983 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 1.42109e-14, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.0170021 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity9" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 0.246694, 0, -0.53938, 0, 1.5, 0, 1.93818, 0, 0.0686529, -11.5933, -0.616485, 26.2311 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity10" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 0.270904, 0, 0.546917, 0, 1.5, 0, -1.92522, 0, 0.0769586, -33.5054, -0.616485, 56.8198 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity15" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.489109, 0, 0.63097, 0, 1.5, 0, -1.74445, 0, -0.176911, -27.0054, -0.616485, 86.8198 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity11" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.69819, 0, 0.705227, 0, 1.5, 0, -1.43182, 0, -0.343885, -13.8095, -0.616485, 113.76 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity12" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 0.489107, 0, -0.630969, 0, 1.5, 0, 1.74444, 0, 0.176911, -6.18517, -0.616485, 63.9643 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity13" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.270903, 0, -0.546917, 0, 1.5, 0, 1.92521, 0, -0.0769585, 1.53264, -0.616485, 118.537 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity16" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( -0.0283755, 0, -0.500553, 0, 1.5, 0, 1.99919, 0, -0.00710458, 2.14251, -0.616485, 85.5367 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity14" type="Spatial" parent="Environment/Zone1/TreeWalls"]
+transform = Transform( 0.270903, 0, 0.546917, 0, 1.5, 0, -1.92521, 0, 0.0769586, -16.848, -0.616485, 150.85 )
+
+[node name="TreeWall" parent="Environment/Zone1/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone1/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone1/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, -7.15256e-07, 0, 1, 10.035, 3.1, -0.0170174 )
+
+[node name="TreeWall4" parent="Environment/Zone1/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="Trees" type="Spatial" parent="Environment/Zone1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.5615, 0, 55.2253 )
+
+[node name="Grass2" type="Spatial" parent="Environment/Zone1/Trees"]
+
+[node name="Grass" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -30.5189 )
+
+[node name="Grass2" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -34.7427 )
+
+[node name="Grass3" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -34.7427 )
+
+[node name="Grass4" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -23.7427 )
+
+[node name="Grass5" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 56.4975, 0, -41.7427 )
+
+[node name="Grass7" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -41.7427 )
+
+[node name="Grass8" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -46.7427 )
+
+[node name="Grass9" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 47.4975, 0, -46.7427 )
+
+[node name="Grass10" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -46.7427 )
+
+[node name="Grass11" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -53.7427 )
+
+[node name="Grass12" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 27.4975, 0, -53.7427 )
+
+[node name="Grass13" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -53.7427 )
+
+[node name="Grass14" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -34.7427 )
+
+[node name="Grass15" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 22.4975, 0, -34.7427 )
+
+[node name="Grass16" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -55.2253 )
+
+[node name="Grass17" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -40.3519 )
+
+[node name="Grass18" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -40.3519 )
+
+[node name="Grass19" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -36.5073 )
+
+[node name="Grass20" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6136, 0, -36.5073 )
+
+[node name="Grass21" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass22" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass6" parent="Environment/Zone1/Trees/Grass2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4975, 0, -23.7427 )
+
+[node name="Grass3" type="Spatial" parent="Environment/Zone1/Trees"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -55.7557, 0, -47.9856 )
+
+[node name="Grass" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -30.5189 )
+
+[node name="Grass2" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -34.7427 )
+
+[node name="Grass3" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -34.7427 )
+
+[node name="Grass4" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -23.7427 )
+
+[node name="Grass5" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 56.4975, 0, -41.7427 )
+
+[node name="Grass7" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -41.7427 )
+
+[node name="Grass8" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -46.7427 )
+
+[node name="Grass9" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 47.4975, 0, -46.7427 )
+
+[node name="Grass10" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -46.7427 )
+
+[node name="Grass11" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -53.7427 )
+
+[node name="Grass12" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 27.4975, 0, -53.7427 )
+
+[node name="Grass13" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -53.7427 )
+
+[node name="Grass14" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -34.7427 )
+
+[node name="Grass15" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 22.4975, 0, -34.7427 )
+
+[node name="Grass16" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -55.2253 )
+
+[node name="Grass17" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -40.3519 )
+
+[node name="Grass18" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -40.3519 )
+
+[node name="Grass19" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -36.5073 )
+
+[node name="Grass20" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6136, 0, -36.5073 )
+
+[node name="Grass21" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass22" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass6" parent="Environment/Zone1/Trees/Grass3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4975, 0, -23.7427 )
+
+[node name="Grass4" type="Spatial" parent="Environment/Zone1/Trees"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -29.0644, 0, 22.8693 )
+
+[node name="Grass" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -30.5189 )
+
+[node name="Grass2" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -34.7427 )
+
+[node name="Grass3" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -34.7427 )
+
+[node name="Grass4" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -23.7427 )
+
+[node name="Grass5" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 56.4975, 0, -41.7427 )
+
+[node name="Grass7" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -41.7427 )
+
+[node name="Grass8" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -46.7427 )
+
+[node name="Grass9" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 47.4975, 0, -46.7427 )
+
+[node name="Grass10" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -46.7427 )
+
+[node name="Grass11" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -53.7427 )
+
+[node name="Grass12" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 27.4975, 0, -53.7427 )
+
+[node name="Grass13" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -53.7427 )
+
+[node name="Grass14" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -34.7427 )
+
+[node name="Grass15" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 22.4975, 0, -34.7427 )
+
+[node name="Grass16" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -55.2253 )
+
+[node name="Grass17" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -40.3519 )
+
+[node name="Grass18" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -40.3519 )
+
+[node name="Grass19" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -36.5073 )
+
+[node name="Grass20" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6136, 0, -36.5073 )
+
+[node name="Grass21" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass22" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass6" parent="Environment/Zone1/Trees/Grass4" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4975, 0, -23.7427 )
+
+[node name="Grass5" type="Spatial" parent="Environment/Zone1/Trees"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -29.0644, 0, 81.2571 )
+
+[node name="Grass" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -30.5189 )
+
+[node name="Grass2" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -34.7427 )
+
+[node name="Grass3" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -34.7427 )
+
+[node name="Grass4" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -23.7427 )
+
+[node name="Grass5" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 56.4975, 0, -41.7427 )
+
+[node name="Grass7" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -41.7427 )
+
+[node name="Grass8" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -46.7427 )
+
+[node name="Grass9" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 47.4975, 0, -46.7427 )
+
+[node name="Grass10" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -46.7427 )
+
+[node name="Grass11" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -53.7427 )
+
+[node name="Grass12" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 27.4975, 0, -53.7427 )
+
+[node name="Grass13" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -53.7427 )
+
+[node name="Grass14" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -34.7427 )
+
+[node name="Grass15" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 22.4975, 0, -34.7427 )
+
+[node name="Grass16" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -55.2253 )
+
+[node name="Grass17" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -40.3519 )
+
+[node name="Grass18" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -40.3519 )
+
+[node name="Grass19" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -36.5073 )
+
+[node name="Grass20" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6136, 0, -36.5073 )
+
+[node name="Grass21" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass22" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass6" parent="Environment/Zone1/Trees/Grass5" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4975, 0, -23.7427 )
+
+[node name="Grass6" type="Spatial" parent="Environment/Zone1/Trees"]
+transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -29.0644, 0, 81.2571 )
+
+[node name="Grass" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -30.5189 )
+
+[node name="Grass2" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.4975, 0, -34.7427 )
+
+[node name="Grass3" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -34.7427 )
+
+[node name="Grass4" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4975, 0, -23.7427 )
+
+[node name="Grass5" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 56.4975, 0, -41.7427 )
+
+[node name="Grass7" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -41.7427 )
+
+[node name="Grass8" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 43.4975, 0, -46.7427 )
+
+[node name="Grass9" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 47.4975, 0, -46.7427 )
+
+[node name="Grass10" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -46.7427 )
+
+[node name="Grass11" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 20.4975, 0, -53.7427 )
+
+[node name="Grass12" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 27.4975, 0, -53.7427 )
+
+[node name="Grass13" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -53.7427 )
+
+[node name="Grass14" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 31.4975, 0, -34.7427 )
+
+[node name="Grass15" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 22.4975, 0, -34.7427 )
+
+[node name="Grass16" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -55.2253 )
+
+[node name="Grass17" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.568024, 0, -40.3519 )
+
+[node name="Grass18" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -40.3519 )
+
+[node name="Grass19" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60268, 0, -36.5073 )
+
+[node name="Grass20" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6136, 0, -36.5073 )
+
+[node name="Grass21" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass22" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.99546, 0, -43.9927 )
+
+[node name="Grass6" parent="Environment/Zone1/Trees/Grass6" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 65.4975, 0, -23.7427 )
+
+[node name="Bush" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -29 )
+
+[node name="Bush2" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 52, 0, -29 )
+
+[node name="Bush3" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 58, 0, -24 )
+
+[node name="Bush4" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 54, 0, -22 )
+
+[node name="Bush5" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 67, 0, -47 )
+
+[node name="Bush7" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 59, 0, -52 )
+
+[node name="Bush8" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 61, 0, -48 )
+
+[node name="Bush10" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 12.1679, 0, -48 )
+
+[node name="Bush11" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 12.1679, 0, -39.3932 )
+
+[node name="Bush12" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 26.3894, 0, -39.3932 )
+
+[node name="Bush13" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 26.3894, 0, -30.7936 )
+
+[node name="Bush14" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -5.24425, 0, -30.7936 )
+
+[node name="Bush9" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 67, 0, -16 )
+
+[node name="Bush6" parent="Environment/Zone1/Trees" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 54, 0, -50 )
+
+[node name="ArbolLargo" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 7, -29 )
+
+[node name="ArbolLargo10" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 7, -34 )
+
+[node name="ArbolLargo11" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.09974, 7, -49 )
+
+[node name="ArbolLargo12" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1218, 7, -40.2248 )
+
+[node name="ArbolLargo13" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1377, 7, -23.282 )
+
+[node name="ArbolLargo15" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1377, 7, -7.28201 )
+
+[node name="ArbolLargo16" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.667222, 0, -0.744859, 0, 1, 0, 0.744859, 0, 0.667222, -35.1377, 7, 8.60518 )
+
+[node name="ArbolLargo17" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.667222, 0, -0.744859, 0, 1, 0, 0.744859, 0, 0.667222, 9.33961, 7, 8.60518 )
+
+[node name="ArbolLargo18" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.997756, 0, -0.066953, 0, 1, 0, 0.066953, 0, -0.997756, -11.2282, 7, -8.16419 )
+
+[node name="ArbolLargo19" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.667222, 0, -0.744859, 0, 1, 0, 0.744859, 0, 0.667222, 8.05437, 7, 31.5723 )
+
+[node name="ArbolLargo20" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.667222, 0, -0.744859, 0, 1, 0, 0.744859, 0, 0.667222, -20.9178, 7, 31.5723 )
+
+[node name="ArbolLargo34" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.0916059, 0, -0.995795, 0, 1, 0, 0.995795, 0, -0.0916059, -15.3403, 7, 35.2881 )
+
+[node name="ArbolLargo35" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.0916059, 0, -0.995795, 0, 1, 0, 0.995795, 0, -0.0916059, -13.6868, 7, 41.7694 )
+
+[node name="ArbolLargo36" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.0916059, 0, -0.995795, 0, 1, 0, 0.995795, 0, -0.0916059, 25.0452, 7, 37.2879 )
+
+[node name="ArbolLargo37" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.0916059, 0, -0.995795, 0, 1, 0, 0.995795, 0, -0.0916059, 25.0452, 7, 37.2879 )
+
+[node name="ArbolLargo21" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -20.9178, 7, -16.4451 )
+
+[node name="ArbolLargo22" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -21.3599, 7, 2.95368 )
+
+[node name="ArbolLargo23" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, 0.55904, 7, 6.40496 )
+
+[node name="ArbolLargo24" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, 0.55904, 7, -19.481 )
+
+[node name="ArbolLargo25" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, 0.55904, 7, -15.9438 )
+
+[node name="ArbolLargo26" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -2.25835, 7, -18.7171 )
+
+[node name="ArbolLargo27" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -4.05344, 7, -21.7171 )
+
+[node name="ArbolLargo28" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -23.2289, 7, -18.7752 )
+
+[node name="ArbolLargo29" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -32.2289, 7, 2.71714 )
+
+[node name="ArbolLargo30" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.404854, 0, -0.914381, 0, 1, 0, 0.914381, 0, -0.404854, -32.2289, 7, -2.28286 )
+
+[node name="ArbolLargo31" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.834386, 0, -0.55118, 0, 1, 0, 0.55118, 0, -0.834386, -37.0152, 7, 0.559731 )
+
+[node name="ArbolLargo32" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.834386, 0, -0.55118, 0, 1, 0, 0.55118, 0, -0.834386, -27.1021, 7, -2.28286 )
+
+[node name="ArbolLargo33" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.834386, 0, -0.55118, 0, 1, 0, 0.55118, 0, -0.834386, -27.1021, 7, -2.28286 )
+
+[node name="ArbolLargo14" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.621148, 0, -0.783693, 0, 1, 0, 0.783693, 0, 0.621148, -1.46878, 7, -23.282 )
+
+[node name="ArbolLargo2" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.95742, 0, 0.288698, 0, 1, 0, -0.288698, 0, 0.95742, 83, 7, -25 )
+
+[node name="ArbolLargo3" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.956869, 0, -0.290518, 0, 1, 0, 0.290518, 0, 0.956869, 83, 7, -22 )
+
+[node name="ArbolLargo4" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.882308, 0, 0.470673, 0, 1, 0, -0.470673, 0, 0.882308, 83, 7, -19 )
+
+[node name="ArbolLargo5" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83, 7, -16 )
+
+[node name="ArbolLargo6" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.948959, 0, 0.315401, 0, 1, 0, -0.315401, 0, 0.948959, 78, 7, -11 )
+
+[node name="ArbolLargo7" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.91674, 0, 0.399485, 0, 1, 0, -0.399485, 0, 0.91674, 81, 7, -12 )
+
+[node name="ArbolLargo8" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.732475, 0.0593526, 0.678202, -0.665239, 0.149333, -0.731544, -0.144697, -0.987004, -0.0698992, 37, 3.52806, -37 )
+
+[node name="ArbolLargo9" parent="Environment/Zone1/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.700289, -0.215011, -0.680709, -0.665239, 0.149333, -0.731544, 0.258943, 0.965127, -0.0384575, 41.6205, 3.52806, -50.2077 )
+
+[node name="ArbolGrande" parent="Environment/Zone1/Trees" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1583, 8.09735, 15.7859 )
+
+[node name="Zone2" type="Spatial" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.324, 0, 157.997 )
+
+[node name="TreeWalls" type="Spatial" parent="Environment/Zone2"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="TreeWallUnity1" type="Spatial" parent="Environment/Zone2/TreeWalls"]
+transform = Transform( 0.012531, 0, 0.499961, 0, 1, 0, -1.99984, 0, 0.012531, -7.16922, -0.5, 21.8733 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity2" type="Spatial" parent="Environment/Zone2/TreeWalls"]
+transform = Transform( 0.258819, 0, -0.482963, 0, 1, 0, 1.93185, 0, 0.258819, 8.25369, -0.5, -1.32597 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity3" type="Spatial" parent="Environment/Zone2/TreeWalls"]
+transform = Transform( 0.012531, 0, 0.499961, 0, 1, 0, -1.99984, 0, 0.012531, -7.3376, -0.5, 51.8733 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity4" type="Spatial" parent="Environment/Zone2/TreeWalls"]
+transform = Transform( 0.258819, 0, -0.482963, 0, 1, 0, 1.93185, 0, 0.258819, 13.317, -0.5, 36.674 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity5" type="Spatial" parent="Environment/Zone2/TreeWalls"]
+transform = Transform( -0.965926, 0, 0.12941, 0, 1, 0, -0.517638, 0, -0.965926, 15.317, -0.5, 82.674 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity6" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5"]
+transform = Transform( -0.500001, 0, 0.433013, 0, 1, 0, -1.73205, 0, -0.500001, -2.1839, 0, 8.65988 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity7" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5"]
+transform = Transform( -0.181152, 0, -0.526314, 0, 1, 0, 1.79086, 0, -0.0532387, 9.78545, 0, -22.2235 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity8" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5"]
+transform = Transform( -0.500001, 0, 0.433013, 0, 1, 0, -1.73205, 0, -0.500001, 16.093, 0, -4.33528 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity9" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.707107, 0, -0.353554, 0, 1, 0, 1.41421, 0, 0.707107, 22.7347, 0, -34.8185 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity10" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.866027, 0, 0.25, 0, 1, 0, -1, 0, -0.866027, 27.7063, 0, 18.359 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity11" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -1, 0, -2.98023e-08, 0, 1, 0, 1.19209e-07, 0, -1, 46.4868, 0, 20.1412 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity12" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.965927, 0, 0.12941, 0, 1, 0, -0.517639, 0, 0.965927, 37.6468, 0, -11.5133 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity13" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.866027, 0, -0.250001, 0, 1, 0, 1, 0, -0.866027, 61.0532, 0, 3.10064 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity14" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.258819, 0, 0.482965, 0, 1, 0, -1.93186, 0, 0.258819, 55.2131, 0, -25.361 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity15" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.500001, 0, -0.433015, 0, 1, 0, 1.73206, 0, -0.500001, 70.5133, 0, -27.5145 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity16" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.500001, 0, -0.433015, 0, 1, 0, 1.73206, 0, -0.500001, 80.1311, 0, -60.6656 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity17" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.0824796, 0, 0.498299, 0, 1, 0, -1.9932, 0, -0.0824796, 59.5057, 0, -63.4367 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity18" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.0824812, 0, -0.4983, 0, 1, 0, 1.9932, 0, 0.0824789, 79.9853, 0, -98.0139 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity19" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.430391, 0, -0.451327, 0, 1, 0, 1.8053, 0, 0.43039, 72.5193, 0, -131.003 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity20" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.0824804, 0, -0.498301, 0, 1, 0, 1.9932, 0, 0.0824804, 105.259, 0, -159.01 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity21" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.904325, 0, -0.213436, 0, 1, 0, 0.853743, 0, 0.904325, 56.7804, 0, -148.755 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity21" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity21" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity21" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity21" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity22" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.983993, 0, -0.0891348, 0, 1, 0, 0.356539, 0, 0.983993, 71.6083, 0, -186.023 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity22" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity22" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity22" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity22" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity23" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.983994, 0, -0.0891349, 0, 1, 0, 0.356539, 0, 0.983994, 52.3519, 0, -192.975 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity23" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity23" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity23" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity23" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity24" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.904327, 0, -0.213437, 0, 1, 0, 0.853743, 0, 0.904326, 40.2246, 0, -164.275 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity24" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity24" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity24" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity24" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity25" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.996607, 0, -0.0412408, 0, 1, 0, 0.164963, 0, -0.996607, 55.6197, 0, -97.5521 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity25" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity25" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity25" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity25" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity26" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.763032, 0, 0.323192, 0, 1, 0, -1.29277, 0, -0.763032, 36.939, 0, -97.2104 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity26" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity26" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity26" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity26" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity27" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.693189, 0, 0.360389, 0, 1, 0, -1.44156, 0, -0.693189, 23.9084, 0, -119.723 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity27" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity27" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity27" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity27" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity28" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.999827, 0, -0.00975466, 0, 1, 0, 0.0390157, 0, 0.999827, 22.4875, 0, -167.072 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity28" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity28" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity28" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity28" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity29" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.970807, 0, 0.119965, 0, 1, 0, -0.479861, 0, 0.970807, -1.37893, 0, -174.388 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity29" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity29" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity29" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity29" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity42" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.96071, 0, -0.13881, 0, 1, 0, 0.555235, 0, 0.96071, 5.80555, 0, -177.785 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity42" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity42" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity42" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity42" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity30" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.970808, 0, -0.119965, 0, 1, 0, 0.479861, 0, -0.970808, 9.52115, 0, -143.7 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity30" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity30" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity30" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity30" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity31" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.856122, 0, 0.258404, 0, 1, 0, -1.03362, 0, -0.856122, -8.42693, 0, -137.414 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity31" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity31" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity31" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity31" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity32" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.69319, 0, -0.36039, 0, 1, 0, 1.44156, 0, 0.69319, -15.8782, 0, -198.62 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity32" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity32" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity32" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity32" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity33" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.69319, 0, -0.36039, 0, 1, 0, 1.44156, 0, 0.69319, -29.2278, 0, -226.479 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity33" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity33" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity33" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity33" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity34" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.483019, 0, 0.437816, 0, 1, 0, -1.75126, 0, -0.483019, -24.2385, 0, -159.225 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity34" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity34" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity34" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity34" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity35" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.99983, 0, 0.0097542, 0, 1, 0, -0.0390168, 0, -0.99983, -35.0771, 0, -189.697 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity35" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity35" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity35" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity35" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity36" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.999831, 0, 0.0097542, 0, 1, 0, -0.0390168, 0, -0.999831, -54.6339, 0, -190.544 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity36" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity36" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity36" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity36" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity37" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( -0.239932, 0, 0.485406, 0, 1, 0, -1.94163, 0, -0.239932, -72.4566, 0, -193.883 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity37" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity37" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity37" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity37" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity38" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.516811, 0, 0.428063, 0, 1, 0, -1.71225, 0, 0.516811, -76.7847, 0, -227.261 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity38" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity38" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity38" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity38" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity39" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.970814, 0, 0.119966, 0, 1, 0, -0.479864, 0, 0.970814, -66.1062, 0, -256.738 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity39" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity39" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity39" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity39" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity40" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.693195, 0, -0.360392, 0, 1, 0, 1.44157, 0, 0.693195, -41.7594, 0, -253.008 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity40" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity40" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity40" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity40" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity41" type="Spatial" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8"]
+transform = Transform( 0.856128, 0, -0.258406, 0, 1, 0, 1.03362, 0, 0.856128, -49.6762, 0, -263.462 )
+
+[node name="TreeWall" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity41" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity41" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity41" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone2/TreeWalls/TreeWallUnity5/TreeWallUnity8/TreeWallUnity41" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="Trees" type="Spatial" parent="Environment/Zone2"]
+
+[node name="Bush" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -7 )
+
+[node name="Bush2" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -10 )
+
+[node name="ArbolLargo" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 7, -7 )
+
+[node name="Bush3" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -2.54248, 0, 3.37306 )
+
+[node name="Bush4" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.993046, 0, 2.66594 )
+
+[node name="ArbolLargo2" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.421169, 7, 5.49437 )
+
+[node name="Bush5" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -12.5425, 0, 28.9307 )
+
+[node name="Bush6" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -9.00695, 0, 28.2236 )
+
+[node name="ArbolLargo3" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -10.4212, 7, 31.052 )
+
+[node name="Bush7" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 18.0847, 0, 25.1623 )
+
+[node name="Bush8" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 18.3168, 0, 21.5643 )
+
+[node name="ArbolLargo4" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 20.6828, 7, 23.6623 )
+
+[node name="Bush9" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 18.0847, 0, 48.1623 )
+
+[node name="Bush10" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 18.3168, 0, 44.5643 )
+
+[node name="ArbolLargo5" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 20.6828, 7, 46.6623 )
+
+[node name="Bush11" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 3.35927, 0, 47.2718 )
+
+[node name="Bush12" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 5.35924, 0, 44.2718 )
+
+[node name="ArbolLargo6" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 6.35924, 7, 47.2718 )
+
+[node name="Bush13" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, -0.640728, 0, 22.2718 )
+
+[node name="Bush14" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 1.35924, 0, 19.2718 )
+
+[node name="ArbolLargo7" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 2.35924, 7, 22.2718 )
+
+[node name="Bush15" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -0.977848, 0, 69.4398 )
+
+[node name="Bush16" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.73043, 0, 67.0596 )
+
+[node name="ArbolLargo8" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1.9199, 7, 70.2162 )
+
+[node name="ArbolLargo9" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 31.799, 7, 75.25 )
+
+[node name="Bush17" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 29.201, 1, 76.75 )
+
+[node name="ArbolLargo10" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 31.799, 7, 85.25 )
+
+[node name="Bush18" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 29.201, 1, 86.75 )
+
+[node name="ArbolLargo11" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 18.5, 7, 87.5 )
+
+[node name="Bush19" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 18.5, 1, 84.5 )
+
+[node name="ArbolLargo12" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 18.5, 7, 119.5 )
+
+[node name="Bush20" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 18.5, 1, 116.5 )
+
+[node name="ArbolLargo13" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 32.5, 7, 119.5 )
+
+[node name="Bush21" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 32.5, 1, 116.5 )
+
+[node name="ArbolLargo14" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 39.4393, 7, 102.061 )
+
+[node name="Bush22" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 41.5606, 1, 99.9393 )
+
+[node name="ArbolLargo15" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 39.4393, 7, 102.061 )
+
+[node name="Bush23" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 41.5606, 1, 99.9393 )
+
+[node name="ArbolLargo16" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9.43933, 7, 173.061 )
+
+[node name="Bush24" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 11.5606, 1, 170.939 )
+
+[node name="ArbolLargo17" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.560673, 7, 147.061 )
+
+[node name="Bush25" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 1.56065, 1, 144.939 )
+
+[node name="ArbolLargo18" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 22.8882, 7, 143.449 )
+
+[node name="Bush26" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 22.1117, 1, 140.551 )
+
+[node name="ArbolLargo19" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 23.5606, 7, 148.061 )
+
+[node name="Bush27" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.4393, 1, 145.939 )
+
+[node name="ArbolLargo20" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 23.7991, 7, 153.25 )
+
+[node name="Bush28" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 21.2009, 1, 154.75 )
+
+[node name="ArbolLargo21" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 37, 7, 173 )
+
+[node name="Bush29" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 34, 1, 173 )
+
+[node name="ArbolLargo22" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, 32.5, 7, 195.5 )
+
+[node name="Bush30" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -7.35137e-08, 0, -1, 0, 1, 0, 1, 0, -7.35137e-08, 32.5, 1, 192.5 )
+
+[node name="ArbolLargo23" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 65.9489, 7, 181.612 )
+
+[node name="Bush31" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 63.0511, 1, 182.388 )
+
+[node name="ArbolLargo24" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 74.25, 7, 181.701 )
+
+[node name="Bush32" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 72.75, 1, 184.299 )
+
+[node name="ArbolLargo25" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 73.8882, 7, 207.449 )
+
+[node name="Bush33" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 73.1117, 1, 204.551 )
+
+[node name="ArbolLargo26" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.8882, 7, 199.449 )
+
+[node name="Bush34" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.1117, 1, 196.551 )
+
+[node name="ArbolLargo27" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.8882, 7, 188.449 )
+
+[node name="Bush35" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 49.1117, 1, 185.551 )
+
+[node name="ArbolLargo28" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 86.8882, 7, 188.449 )
+
+[node name="Bush36" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 86.1117, 1, 185.551 )
+
+[node name="ArbolLargo29" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 84.75, 7, 200.299 )
+
+[node name="Bush37" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 86.25, 1, 197.701 )
+
+[node name="ArbolLargo30" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 64.75, 7, 200.299 )
+
+[node name="Bush38" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 66.25, 1, 197.701 )
+
+[node name="ArbolLargo31" parent="Environment/Zone2/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 64.75, 7, 200.299 )
+
+[node name="Bush39" parent="Environment/Zone2/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 66.25, 1, 197.701 )
+
+[node name="Zone3" type="Spatial" parent="Environment"]
+
+[node name="TreeWalls" type="Spatial" parent="Environment/Zone3"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 1, -47.5182, -1, 240.638 )
+
+[node name="TreeWallUnity1" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.707107, 0, -0.353553, 0, 1, 0, 1.41421, 0, -0.707107, -4, 0, -5 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity1" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity2" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.707107, 0, 0.353553, 0, 1, 0, -1.41421, 0, 0.707107, -20.5, 0, -2 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity2" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity3" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.5, 0, 0.433013, 0, 1, 0, -1.73205, 0, 0.5, -30, 0, 28 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity3" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity4" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 3.27826e-07, 0, -0.5, 0, 1, 0, 2, 0, 3.27826e-07, -16, 0, 24 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity4" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity5" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.258819, 0, -0.482963, 0, 1, 0, 1.93185, 0, -0.258819, -16.5, 0, 61 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity5" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity6" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.258819, 0, 0.482963, 0, 1, 0, -1.93185, 0, 0.258819, -35, 0, 63 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity6" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity7" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -4.02331e-07, 0, 0.5, 0, 1, 0, -2, 0, -4.02331e-07, -35, 0, 97 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity7" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity8" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.258819, 0, -0.482963, 0, 1, 0, 1.93185, 0, 0.258819, -20.3264, 0, 98.3943 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity8" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity9" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.000907959, 0, 0.5, 0, 1, 0, -2, 0, -0.000907959, -35.029, 0, 132.394 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity9" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity10" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.000907959, 0, 0.5, 0, 1, 0, -2, 0, -0.000907959, -35.029, 0, 172.394 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity10" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity11" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.000907959, 0, 0.5, 0, 1, 0, -2, 0, -0.000907959, -35.029, 0, 210.394 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity11" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity12" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.500786, 0, 0.432785, 0, 1, 0, -1.73114, 0, -0.500786, -26.529, 0, 243.394 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity12" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity13" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.000907898, 0, -0.5, 0, 1, 0, 2, 0, 0.000907898, -16.029, 0, 133.394 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity13" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity14" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.000907898, 0, -0.5, 0, 1, 0, 2, 0, 0.000907898, -16.029, 0, 165.394 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity14" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity15" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.500786, 0, -0.432786, 0, 1, 0, 1.73114, 0, 0.500786, -14.7209, 0, 204.687 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity15" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity16" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.96616, 0, -0.128971, 0, 1, 0, 0.515884, 0, 0.96616, -3.72089, 0, 236.202 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity16" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity17" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.866479, 0, 0.249607, 0, 1, 0, -0.998427, 0, -0.866479, -11.2209, 0, 263.202 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity17" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity18" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.999999, 0, -0.000453994, 0, 1, 0, 0.00181597, 0, -0.999999, 5.77911, 0, 264.202 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity18" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity19" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( -0.999999, 0, -0.000453994, 0, 1, 0, 0.00181597, 0, -0.999999, 24.2791, 0, 264.202 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity19" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="TreeWallUnity20" type="Spatial" parent="Environment/Zone3/TreeWalls"]
+transform = Transform( 0.707748, 0, -0.353232, 0, 1, 0, 1.41293, 0, 0.707748, 12.2791, 0, 243.202 )
+
+[node name="TreeWall" parent="Environment/Zone3/TreeWalls/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 0.0349998, 3.1, -0.017 )
+
+[node name="TreeWall2" parent="Environment/Zone3/TreeWalls/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 5.035, 3.1, -0.017 )
+
+[node name="TreeWall3" parent="Environment/Zone3/TreeWalls/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 10.035, 3.1, -0.017 )
+
+[node name="TreeWall4" parent="Environment/Zone3/TreeWalls/TreeWallUnity20" instance=ExtResource( 4 )]
+transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 1, 15.035, 3.1, -0.017 )
+
+[node name="Trees" type="Spatial" parent="Environment/Zone3"]
+
+[node name="ArbolLargo" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66, 7, 239 )
+
+[node name="Bush" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69, 1, 239 )
+
+[node name="ArbolLargo2" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -86.4393, 7, 237.939 )
+
+[node name="Bush2" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -88.5607, 1, 240.061 )
+
+[node name="ArbolLargo3" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -81.4393, 7, 256.939 )
+
+[node name="Bush3" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -83.5607, 1, 259.061 )
+
+[node name="ArbolLargo4" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -81.4393, 7, 264.939 )
+
+[node name="Bush4" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -83.5607, 1, 267.061 )
+
+[node name="ArbolLargo5" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1.2, 0, 0.707107, 0, 0.707107, -86.4393, 7, 263.061 )
+
+[node name="Bush5" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -88.5607, 1, 260.939 )
+
+[node name="ArbolLargo6" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1.2, 0, 0.707107, 0, 0.707107, -110.439, 8, 291.061 )
+
+[node name="Bush6" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -112.561, 1, 288.939 )
+
+[node name="ArbolLargo7" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1.2, 0, 0.258819, 0, 0.965926, -98.0511, 8, 283.388 )
+
+[node name="Bush7" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -100.949, 1, 282.612 )
+
+[node name="ArbolLargo8" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1.2, 0, 0.258819, 0, 0.965926, -86.0511, 8, 303.388 )
+
+[node name="Bush8" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -88.9489, 1, 302.612 )
+
+[node name="ArbolLargo9" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1.2, 0, 0.258819, 0, 0.965926, -88.0511, 8, 312.388 )
+
+[node name="Bush9" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -90.9489, 1, 311.612 )
+
+[node name="ArbolLargo10" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1.2, 0, 0.258819, 0, 0.965926, -107.051, 8, 321.388 )
+
+[node name="Bush10" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -109.949, 1, 320.612 )
+
+[node name="ArbolLargo11" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1.2, 0, 0.965926, 0, 0.258819, -113.112, 8, 328.449 )
+
+[node name="Bush11" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -113.888, 1, 325.551 )
+
+[node name="ArbolLargo12" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1.2, 0, 0.965926, 0, 0.258819, -113.112, 8, 350.449 )
+
+[node name="Bush12" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -113.888, 1, 347.551 )
+
+[node name="ArbolLargo13" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1.2, 0, 0.965926, 0, 0.258819, -113.112, 8, 383.449 )
+
+[node name="Bush13" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( 0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, -113.888, 1, 380.551 )
+
+[node name="ArbolLargo14" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1.2, 0, 0.965926, 0, -0.258819, -109.888, 8, 364.449 )
+
+[node name="Bush14" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, -109.112, 1, 361.551 )
+
+[node name="ArbolLargo15" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1.2, 0, 0.866025, 0, -0.5, -109.25, 8, 377.299 )
+
+[node name="Bush15" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -107.75, 1, 374.701 )
+
+[node name="ArbolLargo16" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1.2, 0, 0.866025, 0, -0.5, -89.25, 8, 365.299 )
+
+[node name="Bush16" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -87.75, 1, 362.701 )
+
+[node name="ArbolLargo17" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1.2, 0, 0.866025, 0, -0.5, -85.25, 8, 373.299 )
+
+[node name="Bush17" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -83.75, 1, 370.701 )
+
+[node name="ArbolLargo18" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -85.7991, 8, 366.25 )
+
+[node name="Bush18" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -83.201, 1, 367.75 )
+
+[node name="ArbolLargo19" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -85.7991, 8, 398.25 )
+
+[node name="Bush19" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -83.201, 1, 399.75 )
+
+[node name="ArbolLargo20" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -88.7991, 8, 411.25 )
+
+[node name="Bush20" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -86.201, 1, 412.75 )
+
+[node name="ArbolLargo21" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -109.799, 8, 422.25 )
+
+[node name="Bush21" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -107.201, 1, 423.75 )
+
+[node name="ArbolLargo22" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -109.799, 8, 436.25 )
+
+[node name="Bush22" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -107.201, 1, 437.75 )
+
+[node name="ArbolLargo23" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -91.7991, 8, 436.25 )
+
+[node name="Bush23" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -89.201, 1, 437.75 )
+
+[node name="ArbolLargo24" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -91.7991, 8, 459.25 )
+
+[node name="Bush24" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -89.201, 1, 460.75 )
+
+[node name="ArbolLargo25" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1.2, 0, -0.5, 0, -0.866025, -77.7991, 8, 459.25 )
+
+[node name="Bush25" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, -75.201, 1, 460.75 )
+
+[node name="ArbolLargo26" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -104.561, 8, 472.939 )
+
+[node name="Bush26" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -102.439, 1, 475.061 )
+
+[node name="ArbolLargo27" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -81.5607, 8, 485.939 )
+
+[node name="Bush27" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -79.4394, 1, 488.061 )
+
+[node name="ArbolLargo28" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -22.5607, 8, 500.939 )
+
+[node name="Bush28" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.4394, 1, 503.061 )
+
+[node name="ArbolLargo29" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -22.5607, 8, 492.939 )
+
+[node name="Bush29" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.4394, 1, 495.061 )
+
+[node name="ArbolLargo30" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -32.5607, 8, 492.939 )
+
+[node name="Bush30" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -30.4394, 1, 495.061 )
+
+[node name="ArbolLargo31" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -32.5607, 8, 484.939 )
+
+[node name="Bush31" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -30.4394, 1, 487.061 )
+
+[node name="ArbolLargo32" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1.2, 0, -0.707107, 0, -0.707107, -32.5607, 8, 501.939 )
+
+[node name="Bush32" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -30.4394, 1, 504.061 )
+
+[node name="ArbolLargo33" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 2.38419e-07, 0, 1.2, 0, -2.38419e-07, 0, -1, -40, 8, 503 )
+
+[node name="Bush33" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, -1, -37, 1, 503 )
+
+[node name="ArbolLargo34" parent="Environment/Zone3/Trees" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, 2.38419e-07, 0, 1.2, 0, -2.38419e-07, 0, -1, -40, 8, 503 )
+
+[node name="Bush34" parent="Environment/Zone3/Trees" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, -1, -37, 1, 503 )
+
+[node name="Armas" type="Spatial" parent="Environment"]
+
+[node name="ShotgunPickup" parent="Environment/Armas" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5167, 3.06383, 114.381 )
+
+[node name="MachineGunPickup" parent="Environment/Armas" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.83986, 17.782 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource( 16 )
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )

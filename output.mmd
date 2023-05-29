@@ -1,0 +1,192 @@
+classDiagram
+	class CharacterMover
+	CharacterMover: +init()
+	CharacterMover: +jump()
+	CharacterMover: +set_move_vec()
+	CharacterMover: +freeze()
+	CharacterMover: +unfreeze()
+	class BirdMonster
+	BirdMonster <|-- Birdmonster.Glb
+	BirdMonster <|-- HitBox
+	BirdMonster: +set_state_idle()
+	BirdMonster: +set_state_chase()
+	BirdMonster: +set_state_attack()
+	BirdMonster: +set_state_dead()
+	BirdMonster: +process_state_idle()
+	BirdMonster: +process_state_chase()
+	BirdMonster: +process_state_attack()
+	BirdMonster: +process_state_dead()
+	BirdMonster: +hurt()
+	BirdMonster: +start_attack()
+	BirdMonster: +emit_attack_signal()
+	BirdMonster: +finish_attack()
+	BirdMonster: +can_see_player()
+	BirdMonster: +player_within_angle()
+	BirdMonster: +has_los_player()
+	BirdMonster: +face_dir()
+	BirdMonster: +alert()
+	BirdMonster: +within_dis_of_player()
+	BirdMonster <|-- HealthManager
+	BirdMonster <|-- CharacterMover
+	BirdMonster <|-- DamageAreaEnemy
+	class ReptileMonster
+	ReptileMonster <|-- Reptilemonster.Glb
+	ReptileMonster <|-- HitBox
+	ReptileMonster: +set_state_idle()
+	ReptileMonster: +set_state_chase()
+	ReptileMonster: +set_state_attack()
+	ReptileMonster: +set_state_dead()
+	ReptileMonster: +process_state_idle()
+	ReptileMonster: +process_state_chase()
+	ReptileMonster: +process_state_attack()
+	ReptileMonster: +process_state_dead()
+	ReptileMonster: +hurt()
+	ReptileMonster: +start_attack()
+	ReptileMonster: +emit_attack_signal()
+	ReptileMonster: +finish_attack()
+	ReptileMonster: +can_see_player()
+	ReptileMonster: +player_within_angle()
+	ReptileMonster: +has_los_player()
+	ReptileMonster: +face_dir()
+	ReptileMonster: +alert()
+	ReptileMonster: +within_dis_of_player()
+	ReptileMonster <|-- HealthManager
+	ReptileMonster <|-- CharacterMover
+	ReptileMonster <|-- FireballSpawner
+	class ReptileMonsterFast
+	ReptileMonsterFast: +aim_at_pos()
+	ReptileMonsterFast <|-- FireballSpawner
+	ReptileMonsterFast <|-- Reptilemonster.Glb
+	ReptileMonsterFast <|-- HealthManager
+	ReptileMonsterFast <|-- HitBox
+	ReptileMonsterFast <|-- CharacterMover
+	class HealthManager
+	HealthManager: +init()
+	HealthManager: +hurt()
+	HealthManager: +heal()
+	HealthManager: +spawn_blood()
+	HealthManager: +spawn_gibs()
+	HealthManager: +get_pickup()
+	class HitBox
+	HitBox: +hurt()
+	class Player
+	Player: +hurt()
+	Player: +heal()
+	Player: +kill()
+	Player <|-- CharacterMover
+	Player <|-- HealthManager
+	Player <|-- Machete.Glb
+	Player <|-- Machinegun.Glb
+	Player <|-- Shotgun.Glb
+	Player <|-- Rocketlauncher.Glb
+	Player <|-- HitScanBulletEmitter
+	Player <|-- Muzzleflash1.Glb
+	Player <|-- Muzzleflash3.Glb
+	Player <|-- DamageArea
+	Player <|-- RocketSpawner
+	Player <|-- Muzzleflash2.Glb
+	Player <|-- DeathMenu
+	Player <|-- PauseMenu
+	class Player
+	Player: +hurt()
+	Player: +heal()
+	Player: +kill()
+	Player <|-- CharacterMover
+	Player <|-- HealthManager
+	Player <|-- Machete.Glb
+	Player <|-- Machinegun.Glb
+	Player <|-- Shotgun.Glb
+	Player <|-- Rocketlauncher.Glb
+	Player <|-- HitScanBulletEmitter
+	Player <|-- Muzzleflash1.Glb
+	Player <|-- Muzzleflash3.Glb
+	Player <|-- DamageArea
+	Player <|-- RocketSpawner
+	Player <|-- Muzzleflash2.Glb
+	class BloodSpray
+	class BulletHitEffect
+	class Gib
+	Gib <|-- Gib.Glb
+	Gib: +init()
+	class Gibs
+	Gibs <|-- Gib
+	Gibs: +enable_gibs()
+	class Level2
+	Level2 <|-- Player
+	Level2 <|-- MachineGunPickup
+	class ArbolGrande
+	class ArbolLargo
+	class ArbolMediano
+	class Bush
+	Bush <|-- 2.Gltf
+	class CarDusty
+	class Grass
+	Grass <|-- 2.Gltf
+	class DeadTree
+	DeadTree <|-- PruebaScena.Gltf
+	class TreeWall
+	class Level3
+	Level3 <|-- Player
+	Level3 <|-- TreeWall
+	Level3 <|-- Bush
+	Level3 <|-- CarDusty
+	Level3 <|-- ArbolLargo
+	Level3 <|-- MachineGunPickup
+	Level3 <|-- ArbolGrande
+	Level3 <|-- ArbolMediano
+	Level3 <|-- BirdMonster
+	Level3 <|-- ShotGunPickup
+	class Spatial
+	Spatial <|-- Player
+	Spatial <|-- MachineGunPickup
+	class HealthPickup
+	HealthPickup <|-- Healthpack.Glb
+	class MachineGunAmmoPickup
+	MachineGunAmmoPickup <|-- Machinegunammo.Glb
+	class MachineGunPickup
+	MachineGunPickup <|-- Machinegun.Glb
+	class RocketLauncherAmmoPickup
+	RocketLauncherAmmoPickup <|-- Rocket.Glb
+	class RocketLauncherPickup
+	RocketLauncherPickup <|-- Rocketlauncher.Glb
+	class ShotGunAmmoPickup
+	ShotGunAmmoPickup <|-- Shotgunammo.Glb
+	class ShotGunPickup
+	ShotGunPickup <|-- Shotgun.Glb
+	class DeathMenu
+	DeathMenu: +set_is_paused()
+	class Intro
+	class LevelMenu
+	class MainMenu
+	MainMenu: +change()
+	class PauseMenu
+	PauseMenu: +set_is_paused()
+	class DamageArea
+	DamageArea: +set_damage()
+	DamageArea: +set_bodies_to_exclude()
+	DamageArea: +fire()
+	class DamageAreaEnemy
+	DamageAreaEnemy: +set_damage()
+	DamageAreaEnemy: +set_bodies_to_exclude()
+	DamageAreaEnemy: +fire()
+	class Explosion
+	Explosion: +explode()
+	class Fireball
+	Fireball: +set_bodies_to_exclude()
+	class FireballSpawner
+	FireballSpawner: +set_damage()
+	FireballSpawner: +set_bodies_to_exclude()
+	FireballSpawner: +fire()
+	class HitScanBulletEmitter
+	HitScanBulletEmitter: +set_damage()
+	HitScanBulletEmitter: +set_bodies_to_exclude()
+	HitScanBulletEmitter: +fire()
+	class Rocket
+	Rocket <|-- Muzzleflash3.Glb
+	Rocket <|-- Rocket.Glb
+	Rocket: +set_bodies_to_exclude()
+	Rocket: +explode()
+	class RocketSpawner
+	RocketSpawner: +set_damage()
+	RocketSpawner: +set_bodies_to_exclude()
+	RocketSpawner: +fire()
