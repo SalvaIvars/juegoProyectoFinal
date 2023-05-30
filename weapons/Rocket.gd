@@ -28,6 +28,7 @@ func explode():
 	exploded = true
 	speed = 0
 	$CollisionShape.disabled = true
+	$AudioStreamPlayer2D.play()
 	var explosion_inst = explosion.instance()
 	get_tree().get_root().add_child(explosion_inst)
 	explosion_inst.global_transform.origin = global_transform.origin

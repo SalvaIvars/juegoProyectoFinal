@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://environment/raw_assets/grass_lowres.png" type="Texture" id=1]
 [ext_resource path="res://Levels/level3/textures/grasstex2.jpg" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://pickups/MachineGunPickup.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/level3/casa2expo/assets/TreeWall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/enemies/BirdMonster.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/RocketLauncherPickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://characters/enemies/Wizard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://characters/enemies/ReptileMonster.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpatialMaterial" id=15]
 albedo_texture = ExtResource( 1 )
@@ -71,8 +74,17 @@ transform = Transform( 0.799307, 0, -0.600923, 0, 1, 0, 0.600923, 0, 0.799307, -
 
 [node name="Navigation" type="Navigation" parent="."]
 
+[node name="ReptileMonster" parent="Navigation" instance=ExtResource( 9 )]
+transform = Transform( -0.997117, 0, 0.0758837, 0, 1, 0, -0.0758837, 0, -0.997117, -23.5066, 1.09735, 11.8779 )
+
+[node name="Wizard" parent="Navigation" instance=ExtResource( 8 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.85698, 21.3078 )
+
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
 navmesh = SubResource( 19 )
 
 [node name="BirdMonster" parent="Navigation" instance=ExtResource( 6 )]
 transform = Transform( -0.997839, 0, 0.0656991, 0, 1, 0, -0.0656991, 0, -0.997839, -22.6934, 0.838086, 9.68618 )
+
+[node name="RocketLauncherPickup" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0526, 1.09735, 0.235237 )

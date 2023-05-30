@@ -33,7 +33,6 @@ func _ready():
 	
 func start_player():
 	$CanvasLayer.hide()
-
 	Input.action_press("move_forward")
 	Input.action_press("attack")
 	load_camera()
@@ -45,6 +44,7 @@ func start_player():
 	weapon_manager.switch_to_weapon_slot(0)
 	weapon_manager.remove_machinegun()
 	$AudioMachineGun.pitch_scale = 1
+	self.transform.origin = Vector3(21.2, 9,36)
 
 func load_camera():
 	for i in range(0, 45, 1):
@@ -57,16 +57,6 @@ func load_camera():
 		rotation_degrees.y -= mouse_sens * i
 		camera.rotation_degrees.x -= mouse_sens * i
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
-	
-func fake_click(position, flags=0):
-	var ev = InputEvent.new()
-	ev.type = InputEvent.MOUSE_BUTTON
-	ev.button_index=BUTTON_LEFT
-	ev.pressed = true
-	ev.global_pos = position
-	ev.meta = flags
-	get_tree().input_event(ev)
-	
 
 func simulate_key(which_key):
   var ev = InputEvent.new()
@@ -125,6 +115,7 @@ func heal(amount):
 	health_manager.heal(amount)
 
 func kill():
+	$CanvasLayer.hide()
 	dead = true
 	character_mover.freeze()
 	get_node("DeathMenu").set_is_paused(true)

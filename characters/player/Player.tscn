@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=2]
@@ -26,6 +26,8 @@
 [ext_resource path="res://ui/menu/DeathMenu.tscn" type="PackedScene" id=24]
 [ext_resource path="res://ui/menu/PauseMenu.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Music/fire.wav" type="AudioStream" id=26]
+[ext_resource path="res://weapons/Sound/10 Guage Shotgun-SoundBible.com-74120584.wav" type="AudioStream" id=27]
+[ext_resource path="res://weapons/Sound/rocket_launch_1.wav" type="AudioStream" id=28]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -145,6 +147,33 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=16]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../../../AudioShotGun:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 27 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../../../AudioShotGun:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
 [sub_resource type="Animation" id=6]
 resource_name = "attack"
 length = 0.8
@@ -171,6 +200,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 21.355, 0, 0 ), Vector3( 87.895, 0, 0 ), Vector3( 87.895, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../../../AudioShotGun:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -201,6 +242,21 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=17]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../../../AudioRocketLauncher:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
 [sub_resource type="Animation" id=8]
 resource_name = "attack"
 length = 0.4
@@ -211,10 +267,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.001, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0.0361248 ), Vector3( 0, 0, 0 ) ]
+"values": [ Vector3( 0, 0, 0.0361248 ), Vector3( 0, 0, 0.0361248 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../../../../AudioRocketLauncher")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../../../../AudioRocketLauncher:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -301,7 +379,6 @@ script = ExtResource( 4 )
 
 [node name="Machete" type="Spatial" parent="Camera/WeaponManager/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173936, -0.0278969, 0.0647341 )
-visible = false
 script = ExtResource( 10 )
 damage = 15
 ammo = -1
@@ -339,6 +416,7 @@ __meta__ = {
 
 [node name="MachineGun" type="Spatial" parent="Camera/WeaponManager/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135936, 0.0357596, 0.111642 )
+visible = false
 script = ExtResource( 10 )
 automatic = true
 attack_rate = 0.1
@@ -386,9 +464,11 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130691, 0.0411246, 0.139673 )
 visible = false
 script = ExtResource( 10 )
+ammo = 0
 attack_rate = 0.8
 
 [node name="Graphics" type="Spatial" parent="Camera/WeaponManager/Weapons/Shotgun"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.154344 )
 
 [node name="shotgun" parent="Camera/WeaponManager/Weapons/Shotgun/Graphics" instance=ExtResource( 7 )]
 transform = Transform( 0.137906, 0, 0, 0, 0.137906, 0, 0, 0, 0.137906, 0, -0.000802144, 0.0218236 )
@@ -404,6 +484,7 @@ transform = Transform( -0.13922, 0, -4.53637e-08, 0, 0.13922, 0, 4.53637e-08, 0,
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/WeaponManager/Weapons/Shotgun"]
 autoplay = "idle"
+anims/RESET = SubResource( 16 )
 anims/attack = SubResource( 6 )
 anims/idle = SubResource( 7 )
 
@@ -440,7 +521,6 @@ __meta__ = {
 
 [node name="RocketLauncher" type="Spatial" parent="Camera/WeaponManager/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12835, 0.109043, 0.148012 )
-visible = false
 script = ExtResource( 10 )
 
 [node name="Graphics" type="Spatial" parent="Camera/WeaponManager/Weapons/RocketLauncher"]
@@ -459,6 +539,7 @@ transform = Transform( -0.121088, 0, -3.94556e-08, 0, 0.121088, 0, 3.94556e-08, 
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera/WeaponManager/Weapons/RocketLauncher"]
 autoplay = "idle"
+anims/RESET = SubResource( 17 )
 anims/attack = SubResource( 8 )
 anims/idle = SubResource( 9 )
 
@@ -491,7 +572,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.111322 )
 [node name="CharacterMover" parent="." instance=ExtResource( 2 )]
 
 [node name="HealthManager" parent="." instance=ExtResource( 3 )]
-max_health = 1000
 
 [node name="Sound" type="Spatial" parent="."]
 
@@ -532,6 +612,14 @@ visible = false
 [node name="AudioMachineGun" type="AudioStreamPlayer2D" parent="."]
 visible = false
 stream = ExtResource( 26 )
+
+[node name="AudioShotGun" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource( 27 )
+
+[node name="AudioRocketLauncher" type="AudioStreamPlayer2D" parent="."]
+visible = false
+stream = ExtResource( 28 )
 
 [connection signal="ammo_changed" from="Camera/WeaponManager" to="CanvasLayer/StatsDisplay" method="update_ammo"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/MachineGun" to="Camera/WeaponManager/Weapons/MachineGun/Graphics/MuzzleFlash" method="flash"]

@@ -455,6 +455,7 @@ skin = SubResource( 2 )
 transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.2666e-07, -1.52737e-07, -4.76837e-07 )
 visible = false
 script = ExtResource( 6 )
+weak_spot = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox"]
 transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
@@ -485,5 +486,5 @@ script = ExtResource( 4 )
 transform = Transform( 2.80969, 0, 0, 0, 2, 0, 0, 0, -1.79576, 0, -0.293561, 0.17185 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -0.999997, 0.00242582, 0, -0.00242582, -0.999997, 0.154332, 0.297694, 0.23903 )
+transform = Transform( 1, 0, 0, 0, -0.999997, 0.00242582, 0, -0.00242582, -0.999997, 0.154332, 0.262516, 0.23903 )
 shape = SubResource( 8 )
