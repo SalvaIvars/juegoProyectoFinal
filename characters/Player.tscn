@@ -254,9 +254,7 @@ radius = 50.0
 [sub_resource type="CapsuleShape" id=14]
 radius = 0.67
 
-[node name="Player" type="KinematicBody" groups=[
-"player",
-]]
+[node name="Player" type="KinematicBody" groups=["player"]]
 collision_layer = 6
 collision_mask = 3
 script = ExtResource( 1 )
@@ -361,9 +359,10 @@ __meta__ = {
 }
 
 [node name="Shotgun" type="Spatial" parent="Camera/WeaponManager/Weapons"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130691, 0.0411246, 0.139673 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.157627, -0.0477579, 0.165556 )
 visible = false
 script = ExtResource( 10 )
+damage = 50
 attack_rate = 0.8
 
 [node name="Graphics" type="Spatial" parent="Camera/WeaponManager/Weapons/Shotgun"]
@@ -492,6 +491,7 @@ script = ExtResource( 21 )
 [node name="CollisionShape" type="CollisionShape" parent="PickupManager"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
 shape = SubResource( 14 )
+
 [connection signal="fired" from="Camera/WeaponManager/Weapons/MachineGun" to="Camera/WeaponManager/Weapons/MachineGun/Graphics/MuzzleFlash" method="flash"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/Shotgun" to="Camera/WeaponManager/Weapons/Shotgun/Graphics/MuzzleFlash" method="flash"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/RocketLauncher" to="Camera/WeaponManager/Weapons/RocketLauncher/Graphics/MuzzleFlash" method="flash"]

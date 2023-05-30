@@ -1,6 +1,5 @@
 extends Label
 
-
 var ammo = 0
 var health = 0
 

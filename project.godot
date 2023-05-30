@@ -37,6 +37,8 @@ mouse_cursor/custom_image="res://Icons/PointyFinger.png"
 [global]
 
 occlusion=false
+rce=false
+rc=false
 
 [gui]
 
