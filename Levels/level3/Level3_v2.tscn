@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Levels/level3/textures/grasstex2.jpg" type="Texture" id=1]
 [ext_resource path="res://environment/raw_assets/grass_lowres.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Levels/Scripts/Level2.gd" type="Script" id=17]
 [ext_resource path="res://pickups/RocketLauncherPickup.tscn" type="PackedScene" id=18]
 [ext_resource path="res://ui/menu/Settings/settings_menu.tscn" type="PackedScene" id=19]
+[ext_resource path="res://ui/menu/FinishMenu.tscn" type="PackedScene" id=20]
 
 [sub_resource type="SpatialMaterial" id=23]
 albedo_texture = ExtResource( 2 )
@@ -4840,3 +4841,6 @@ text = "LEVEL 2
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.686001, -0.70864, -0.165022, 0.123886, -0.109732, 0.98621, -0.716976, -0.696985, 0.0125143, 0, 109.013, 220.584 )
+
+[node name="FinishMenu" parent="." instance=ExtResource( 20 )]
+visible = false
