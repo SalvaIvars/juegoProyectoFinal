@@ -15,4 +15,5 @@ func _process(_delta):
 func end_level():
 	end = false
 	yield(get_tree().create_timer(3), "timeout")
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene("res://ui/menu/FinishMenu.tscn")
