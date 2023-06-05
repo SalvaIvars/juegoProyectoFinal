@@ -71,7 +71,7 @@ func set_state_dead():
 	character_mover.freeze()
 	$CollisionShape.disabled = true
 
-func process_state_idle(delta):
+func process_state_idle(_delta):
 	if can_see_player():
 		set_state_chase()
 
@@ -99,7 +99,7 @@ func process_state_attack(delta):
 		else:
 			start_attack()
 
-func process_state_dead(delta):
+func process_state_dead(_delta):
 	pass
 
 func hurt(damage: int, dir: Vector3):
@@ -130,7 +130,6 @@ func player_within_angle(angle: float):
 func has_los_player():
 	var our_pos = global_transform.origin + Vector3.UP
 	var player_pos = player.global_transform.origin + Vector3.UP
-	var prueba_player_pos = our_pos 
 	var space_state = get_world().get_direct_space_state()
 	var result = space_state.intersect_ray(our_pos, player_pos, [], 1)
 	if result:
@@ -152,5 +151,5 @@ func alert(check_los=true):
 		return
 	set_state_chase()
 
-func within_dis_of_player(dis: float):
+func within_dis_of_player(_dis: float):
 	return global_transform.origin.distance_to(player.global_transform.origin) < attack_range

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://mago/mago level/MageMat.material" type="Material" id=1]
 [ext_resource path="res://characters/enemies/AimAtObject.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://characters/HitBox.gd" type="Script" id=5]
 [ext_resource path="res://weapons/FireballSpawner.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/enemies/wizard.gd" type="Script" id=7]
+[ext_resource path="res://Music/Enemy/belch.wav" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape" id=6]
 
@@ -271,6 +272,28 @@ tracks/13/keys = {
 "method": "fire"
 } ]
 }
+tracks/14/type = "audio"
+tracks/14/path = NodePath("AudioStreamPlayer2D")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=10]
 resource_name = "ArmatureAction_003"
@@ -370,6 +393,21 @@ tracks/12/keys = PoolRealArray( 0, 1, 5.96046e-08, 1.49012e-08, 0, 0.000707889, 
 [sub_resource type="Animation" id=11]
 resource_name = "Idle"
 
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
 [node name="Wizard" type="KinematicBody"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 3.85698, 0 )
 script = ExtResource( 7 )
@@ -457,7 +495,6 @@ skin = SubResource( 2 )
 
 [node name="HealthManager" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
-max_health = 80
 
 [node name="CharacterMover" parent="." instance=ExtResource( 3 )]
 move_accel = 1
@@ -481,3 +518,7 @@ anims/ArmatureAction = SubResource( 8 )
 anims/ArmatureAction_001 = SubResource( 9 )
 anims/ArmatureAction_003 = SubResource( 10 )
 anims/Idle = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )

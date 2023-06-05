@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ui/menu/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://ui/Spoikofo.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://ui/Spoikofo-filled.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Icons/Pause.png" type="Texture" id=4]
+[ext_resource path="res://ui/menu/Settings/settings_menu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -25,6 +26,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
 
+[node name="SettingsMenu" parent="." instance=ExtResource( 5 )]
+
 [node name="Background" type="ColorRect" parent="."]
 pause_mode = 2
 anchor_right = 1.0
@@ -39,9 +42,9 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 pause_mode = 2
 margin_left = 382.0
-margin_top = 219.0
+margin_top = 192.0
 margin_right = 641.0
-margin_bottom = 380.0
+margin_bottom = 407.0
 custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -65,17 +68,25 @@ margin_bottom = 110.0
 custom_fonts/font = SubResource( 3 )
 text = "Resume Game"
 
+[node name="Settings" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 259.0
+margin_bottom = 164.0
+custom_fonts/font = SubResource( 3 )
+text = "Settings"
+
 [node name="Pause" type="Sprite" parent="CenterContainer/VBoxContainer"]
 position = Vector2( 138, -79 )
 scale = Vector2( 0.6, 0.480001 )
 texture = ExtResource( 4 )
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 120.0
+margin_top = 174.0
 margin_right = 259.0
-margin_bottom = 161.0
+margin_bottom = 215.0
 custom_fonts/font = SubResource( 4 )
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Resume Game" to="." method="_on_Resume_Game_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

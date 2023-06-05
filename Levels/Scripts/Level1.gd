@@ -2,16 +2,16 @@ extends Spatial
 
 var loader
 var new_scene
-var change = true
-var change_label = true
+var change_var = true
+var change_label_var = true
 var player
 
-func _process(delta):
+func _process(_delta):
 	player = get_tree().get_nodes_in_group("player")[0]
 	var position = player.global_transform.origin
 	
-	if position.x >= 390 and change_label:
-		change_label = false
+	if position.x >= 590 and change_label_var:
+		change_label_var = false
 		change_label()
 	
 

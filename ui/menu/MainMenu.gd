@@ -1,12 +1,12 @@
 extends Control
 
 var level_instance : Spatial
-onready var main_3d : Spatial = $Main3D
 onready var background : ColorRect = $Background
 onready var center : CenterContainer= $CenterContainer
 onready var levelChangeAnimation : AnimationPlayer = $AnimationPlayer
 onready var levelChangeColorRect : ColorRect = $LevelAnimation
 onready var first_world = preload("res://Levels/Level2/Level2.tscn")
+onready var settings_menu = $SettingsMenu
 
 var loader
 var new_scene
@@ -32,3 +32,7 @@ func _on_Play_pressed():
 
 func _on_Quit_pressed():
 	get_tree().quit()
+
+
+func _on_Settings_pressed():
+	settings_menu.popup_centered()

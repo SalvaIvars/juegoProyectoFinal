@@ -19,3 +19,7 @@ func _on_Resume_Game_pressed():
 
 func _on_Quit_pressed():
 	get_tree().change_scene("res://ui/menu/MainMenu.tscn")
+
+
+func _on_Settings_pressed():
+	$SettingsMenu.popup_centered()
