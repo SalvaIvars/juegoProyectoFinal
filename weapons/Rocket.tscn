@@ -70,7 +70,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
-volume_db = 3.0
+volume_db = -1.0
 max_distance = 2010.0
 
 [connection signal="timeout" from="ShowAfterTimeTimer" to="." method="show"]

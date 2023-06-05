@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://WizardMinion/Lamb/BlackPhillipTex.material" type="Material" id=1]
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://weapons/DamageAreaEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://characters/HitBox.gd" type="Script" id=6]
 [ext_resource path="res://characters/enemies/WizardMinion.gd" type="Script" id=7]
+[ext_resource path="res://Music/Enemy/monster-17.wav" type="AudioStream" id=8]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "2_Plane"
@@ -174,6 +175,28 @@ tracks/13/keys = {
 "args": [  ],
 "method": "fire"
 } ]
+}
+tracks/14/type = "audio"
+tracks/14/path = NodePath("AudioStreamPlayer2D")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 2,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -370,6 +393,21 @@ tracks/12/keys = PoolRealArray( 0, 1, 0, -1.11759e-08, -3.72529e-09, 1.49012e-08
 [sub_resource type="Animation" id=7]
 resource_name = "Idle"
 
+[sub_resource type="Animation" id=9]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 0.952413, 0.50931, 0.722928 )
 
@@ -383,7 +421,7 @@ attack_range = 4.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0 )
 
 [node name="Armature" type="Spatial" parent="Graphics"]
-transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0.046782, -0.0759327, -0.126195 )
+transform = Transform( 1, 0, 0, 0, 0, 1, 0, -1, 0, 0.000324011, 0, 0 )
 
 [node name="Skeleton" type="Skeleton" parent="Graphics/Armature"]
 bones/0/name = "Bone"
@@ -454,10 +492,60 @@ skin = SubResource( 2 )
 [node name="HitBox" type="Area" parent="Graphics/Armature/Skeleton"]
 transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.2666e-07, -1.52737e-07, -4.76837e-07 )
 visible = false
+collision_layer = 4
+collision_mask = 4
 script = ExtResource( 6 )
 weak_spot = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox"]
+transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
+visible = false
+shape = SubResource( 6 )
+
+[node name="HitBox2" type="Area" parent="Graphics/Armature/Skeleton"]
+transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, 0.448536, -4.76837e-07 )
+visible = false
+collision_layer = 4
+script = ExtResource( 6 )
+weak_spot = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox2"]
+transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
+visible = false
+shape = SubResource( 6 )
+
+[node name="HitBox3" type="Area" parent="Graphics/Armature/Skeleton"]
+transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, -0.266945, -4.76837e-07 )
+visible = false
+collision_layer = 4
+script = ExtResource( 6 )
+weak_spot = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox3"]
+transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
+visible = false
+shape = SubResource( 6 )
+
+[node name="HitBox4" type="Area" parent="Graphics/Armature/Skeleton"]
+transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, -0.549172, -4.76837e-07 )
+visible = false
+collision_layer = 4
+script = ExtResource( 6 )
+weak_spot = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox4"]
+transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
+visible = false
+shape = SubResource( 6 )
+
+[node name="HitBox5" type="Area" parent="Graphics/Armature/Skeleton"]
+transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, -1.02568, 0.475084 )
+visible = false
+collision_layer = 4
+script = ExtResource( 6 )
+weak_spot = true
+
+[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox5"]
 transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
 visible = false
 shape = SubResource( 6 )
@@ -470,6 +558,7 @@ anims/ArmatureAction_000 = SubResource( 3 )
 anims/ArmatureAction_001 = SubResource( 4 )
 anims/ArmatureAction_005 = SubResource( 5 )
 anims/Idle = SubResource( 7 )
+anims/RESET = SubResource( 9 )
 
 [node name="HealthManager" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
@@ -488,3 +577,6 @@ transform = Transform( 2.80969, 0, 0, 0, 2, 0, 0, 0, -1.79576, 0, -0.293561, 0.1
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.999997, 0.00242582, 0, -0.00242582, -0.999997, 0.154332, 0.262516, 0.23903 )
 shape = SubResource( 8 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )

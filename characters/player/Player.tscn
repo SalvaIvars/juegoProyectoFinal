@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=2]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Music/fire.wav" type="AudioStream" id=26]
 [ext_resource path="res://weapons/Sound/10 Guage Shotgun-SoundBible.com-74120584.wav" type="AudioStream" id=27]
 [ext_resource path="res://weapons/Sound/rocket_launch_1.wav" type="AudioStream" id=28]
+[ext_resource path="res://Music/Damage/damage_6_sean.wav" type="AudioStream" id=29]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -419,6 +420,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135936, 0.0357596, 0.111642 
 visible = false
 script = ExtResource( 10 )
 automatic = true
+damage = 10
 attack_rate = 0.1
 
 [node name="Graphics" type="Spatial" parent="Camera/WeaponManager/Weapons/MachineGun"]
@@ -464,6 +466,7 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130691, 0.0411246, 0.139673 )
 visible = false
 script = ExtResource( 10 )
+damage = 10
 ammo = 0
 attack_rate = 0.8
 
@@ -521,6 +524,7 @@ __meta__ = {
 
 [node name="RocketLauncher" type="Spatial" parent="Camera/WeaponManager/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12835, 0.109043, 0.148012 )
+visible = false
 script = ExtResource( 10 )
 
 [node name="Graphics" type="Spatial" parent="Camera/WeaponManager/Weapons/RocketLauncher"]
@@ -570,6 +574,8 @@ anims/moving = SubResource( 11 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.111322 )
 
 [node name="CharacterMover" parent="." instance=ExtResource( 2 )]
+move_accel = 3
+max_speed = 20
 
 [node name="HealthManager" parent="." instance=ExtResource( 3 )]
 
@@ -620,6 +626,10 @@ stream = ExtResource( 27 )
 [node name="AudioRocketLauncher" type="AudioStreamPlayer2D" parent="."]
 visible = false
 stream = ExtResource( 28 )
+volume_db = -2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 29 )
 
 [connection signal="ammo_changed" from="Camera/WeaponManager" to="CanvasLayer/StatsDisplay" method="update_ammo"]
 [connection signal="fired" from="Camera/WeaponManager/Weapons/MachineGun" to="Camera/WeaponManager/Weapons/MachineGun/Graphics/MuzzleFlash" method="flash"]

@@ -8,7 +8,7 @@ var hotkeys = {
 	KEY_5: 4,
 }
 
-export var mouse_sens = 0.5
+onready var options = get_node("/root/GlobalSettings")
 
 onready var camera = $Camera
 onready var character_mover = $CharacterMover
@@ -29,8 +29,12 @@ func _ready():
 	health_manager.connect("dead", self, "kill")
 	weapon_manager.init($Camera/FirePoint, [self])
 	$AudioMachineGun.pitch_scale = 0.01
+	var node_var = get_node_or_null("/root/Level3")
+	if node_var:
+		character_mover.move_accel = 4
+		character_mover.max_speed = 25
 	start_player()
-	
+
 func start_player():
 	$CanvasLayer.hide()
 	Input.action_press("move_forward")
@@ -45,17 +49,20 @@ func start_player():
 	weapon_manager.remove_machinegun()
 	$AudioMachineGun.pitch_scale = 1
 	self.transform.origin = Vector3(21.2, 9,36)
+	rotation_degrees.y -=  options.mouse_sens * 24.0
+	camera.rotation_degrees.x -=  options.mouse_sens * 154.0
+	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
 
 func load_camera():
 	for i in range(0, 45, 1):
 		yield(get_tree().create_timer(0.01), "timeout")
-		rotation_degrees.y -= mouse_sens * i
-		camera.rotation_degrees.x -= mouse_sens * i
+		rotation_degrees.y -=  options.mouse_sens * i
+		camera.rotation_degrees.x -=  options.mouse_sens * i
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
 	for i in range(0, -40, -1):
 		yield(get_tree().create_timer(0.01), "timeout")
-		rotation_degrees.y -= mouse_sens * i
-		camera.rotation_degrees.x -= mouse_sens * i
+		rotation_degrees.y -=  options.mouse_sens * i
+		camera.rotation_degrees.x -=  options.mouse_sens * i
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
 
 func simulate_key(which_key):
@@ -65,7 +72,7 @@ func simulate_key(which_key):
   get_tree().input_event(ev)
 
 func _process(_delta):
-
+	$Camera.fov = options.fov
 	if self.transform.origin.y < -25:
 		kill()
 	if Input.is_action_just_pressed("exit"):
@@ -96,8 +103,8 @@ func _process(_delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		rotation_degrees.y -= mouse_sens * event.relative.x
-		camera.rotation_degrees.x -= mouse_sens * event.relative.y
+		rotation_degrees.y -=  options.mouse_sens * event.relative.x
+		camera.rotation_degrees.x -=  options.mouse_sens * event.relative.y
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
 	if event is InputEventKey and event.pressed:
 		if event.scancode in hotkeys:
@@ -109,6 +116,7 @@ func _input(event):
 			weapon_manager.switch_to_last_weapon()
 
 func hurt(damage, dir):
+	$AudioStreamPlayer2D.play()
 	health_manager.hurt(damage, dir)
 
 func heal(amount):
