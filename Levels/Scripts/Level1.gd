@@ -16,8 +16,11 @@ func _process(_delta):
 	
 
 func change_label():
+	var node = get_node_or_null("/root/Level5/Player")
+	if node != null:
+		node.hide_layer()
 	$LevelAnimation2.show()
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(get_tree().create_timer(0.3), "timeout")
 	start_loading()
 
 func start_loading():

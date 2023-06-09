@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://ui/Spoikofo-filled.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Music/Outlaws - violent - nervousness.mp3" type="AudioStream" id=2]
+[ext_resource path="res://ui/MultiplayerMenu.gd" type="Script" id=3]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="Animation" id=7]
+resource_name = "ChangeLevel"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelAnimation:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("LevelAnimation:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="MultiplayerMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Background" type="ColorRect" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -474.0
+margin_top = -343.0
+margin_right = 586.0
+margin_bottom = 445.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+pause_mode = 2
+margin_left = 406.0
+margin_top = 205.0
+margin_right = 617.0
+margin_bottom = 394.0
+custom_constants/separation = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 211.0
+margin_bottom = 38.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Multiplayer"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="CenterContainer/VBoxContainer"]
+margin_top = 48.0
+margin_right = 211.0
+margin_bottom = 48.0
+
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 211.0
+margin_bottom = 95.0
+custom_fonts/font = SubResource( 3 )
+text = "Join server"
+
+[node name="Create" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 105.0
+margin_right = 211.0
+margin_bottom = 142.0
+custom_fonts/font = SubResource( 3 )
+text = "Create server"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 152.0
+margin_right = 211.0
+margin_bottom = 189.0
+custom_fonts/font = SubResource( 4 )
+text = "Quit"
+
+[node name="LevelAnimation" type="ColorRect" parent="."]
+visible = false
+margin_right = 1028.0
+margin_bottom = 607.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Label" type="Label" parent="LevelAnimation"]
+margin_left = 420.0
+margin_top = 240.0
+margin_right = 641.0
+margin_bottom = 365.0
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+text = "LEVEL 1
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ChangeLevel = SubResource( 7 )
+anims/RESET = SubResource( 8 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Create" to="." method="_on_Create_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

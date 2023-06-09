@@ -495,6 +495,7 @@ skin = SubResource( 2 )
 
 [node name="HealthManager" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+max_health = 2000
 
 [node name="CharacterMover" parent="." instance=ExtResource( 3 )]
 move_accel = 1

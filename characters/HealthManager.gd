@@ -12,7 +12,7 @@ signal gibbed
 export var max_health = 100
 var cur_health = 1
 
-export var gib_at = -10
+export var gib_at = 0
 
 func _ready():
 	init()

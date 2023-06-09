@@ -78,9 +78,9 @@ anchor_bottom = 1.0
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 pause_mode = 2
 margin_left = 375.0
-margin_top = 229.0
+margin_top = 205.0
 margin_right = 648.0
-margin_bottom = 371.0
+margin_bottom = 394.0
 custom_constants/separation = 10
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
@@ -104,10 +104,17 @@ margin_bottom = 95.0
 custom_fonts/font = SubResource( 6 )
 text = "Play"
 
-[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Multiplayer" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 105.0
 margin_right = 273.0
 margin_bottom = 142.0
+custom_fonts/font = SubResource( 6 )
+text = "Multiplayer"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 152.0
+margin_right = 273.0
+margin_bottom = 189.0
 custom_fonts/font = SubResource( 8 )
 text = "Quit"
 
@@ -138,4 +145,5 @@ autoplay = true
 [node name="SettingsMenu" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Multiplayer" to="." method="_on_Multiplayer_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
