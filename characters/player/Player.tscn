@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://characters/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://characters/CharacterMover.tscn" type="PackedScene" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://weapons/Sound/10 Guage Shotgun-SoundBible.com-74120584.wav" type="AudioStream" id=27]
 [ext_resource path="res://weapons/Sound/rocket_launch_1.wav" type="AudioStream" id=28]
 [ext_resource path="res://Music/Damage/damage_6_sean.wav" type="AudioStream" id=29]
+[ext_resource path="res://Client/ui/KleintenDynFont.tres" type="DynamicFont" id=30]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -371,6 +372,7 @@ shape = SubResource( 1 )
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69244, 0 )
 current = true
+far = 140.0
 
 [node name="WeaponManager" type="Spatial" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96046e-08, -0.15642, -0.31398 )
@@ -380,6 +382,7 @@ script = ExtResource( 4 )
 
 [node name="Machete" type="Spatial" parent="Camera/WeaponManager/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.173936, -0.0278969, 0.0647341 )
+visible = false
 script = ExtResource( 10 )
 damage = 15
 ammo = -1
@@ -417,13 +420,13 @@ __meta__ = {
 
 [node name="MachineGun" type="Spatial" parent="Camera/WeaponManager/Weapons"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.135936, 0.0357596, 0.111642 )
-visible = false
 script = ExtResource( 10 )
 automatic = true
 damage = 10
 attack_rate = 0.1
 
 [node name="Graphics" type="Spatial" parent="Camera/WeaponManager/Weapons/MachineGun"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0689657 )
 
 [node name="machinegun" parent="Camera/WeaponManager/Weapons/MachineGun/Graphics" instance=ExtResource( 6 )]
 transform = Transform( 0.149456, 0, 0, 0, 0.149456, 0, 0, 0, 0.149456, 0, 0, 0.0481809 )
@@ -595,7 +598,6 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0
 shape = SubResource( 14 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="StatsDisplay" type="Label" parent="CanvasLayer"]
 anchor_right = 0.229
@@ -607,6 +609,17 @@ custom_fonts/font = ExtResource( 22 )
 text = "Health: 0
 Ammo: 0
 FPS: 0"
+script = ExtResource( 23 )
+
+[node name="Points" type="Label" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -197.248
+margin_right = 197.248
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 30 )
+align = 1
+valign = 1
 script = ExtResource( 23 )
 
 [node name="DeathMenu" parent="." instance=ExtResource( 24 )]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Outlaws - violent - nervousness.mp3-636e9591cfd3dad4f72a8777338313c8.mp3str"
+
+[deps]
+
+source_file="res://Client/sounds/Outlaws - violent - nervousness.mp3"
+dest_files=[ "res://.import/Outlaws - violent - nervousness.mp3-636e9591cfd3dad4f72a8777338313c8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -11,5 +11,9 @@ func _on_Area_body_entered(body:Node):
 		change_level()
 
 func change_level():
-	var level = get_node_or_null("/root/Level5")
-	level.change_label()
+	var level2 = get_node_or_null("/root/Level5")
+	var level3 = get_node_or_null("/root/Level3")
+	if level2 != null:
+		level2.change_label()
+	if level3 != null:
+		level3.change_label()

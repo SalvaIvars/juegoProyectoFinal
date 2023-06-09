@@ -498,55 +498,7 @@ script = ExtResource( 6 )
 weak_spot = true
 
 [node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox"]
-transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
-visible = false
-shape = SubResource( 6 )
-
-[node name="HitBox2" type="Area" parent="Graphics/Armature/Skeleton"]
-transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, 0.448536, -4.76837e-07 )
-visible = false
-collision_layer = 4
-script = ExtResource( 6 )
-weak_spot = true
-
-[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox2"]
-transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
-visible = false
-shape = SubResource( 6 )
-
-[node name="HitBox3" type="Area" parent="Graphics/Armature/Skeleton"]
-transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, -0.266945, -4.76837e-07 )
-visible = false
-collision_layer = 4
-script = ExtResource( 6 )
-weak_spot = true
-
-[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox3"]
-transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
-visible = false
-shape = SubResource( 6 )
-
-[node name="HitBox4" type="Area" parent="Graphics/Armature/Skeleton"]
-transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, -0.549172, -4.76837e-07 )
-visible = false
-collision_layer = 4
-script = ExtResource( 6 )
-weak_spot = true
-
-[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox4"]
-transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
-visible = false
-shape = SubResource( 6 )
-
-[node name="HitBox5" type="Area" parent="Graphics/Armature/Skeleton"]
-transform = Transform( 1, 0, 7.76102e-10, -4.65661e-09, 1, -2.48353e-08, 4.52726e-10, 0, 1, 1.19209e-07, -1.02568, 0.475084 )
-visible = false
-collision_layer = 4
-script = ExtResource( 6 )
-weak_spot = true
-
-[node name="CollisionShape" type="CollisionShape" parent="Graphics/Armature/Skeleton/HitBox5"]
-transform = Transform( 1, 7.75312e-10, 7.41085e-10, 4.89877e-09, 0.0451189, 0.998982, 4.21957e-09, -0.998982, 0.045119, 0, -0.188294, 0.479885 )
+transform = Transform( 1.96263, 2.18124e-09, 1.42469e-09, 1.03243e-08, 0.220812, 4.88902, 1.22564e-08, -2.81051, 0.126936, 0, -0.447751, 0.407922 )
 visible = false
 shape = SubResource( 6 )
 
@@ -573,6 +525,7 @@ script = ExtResource( 4 )
 
 [node name="DamageAreaEnemy" parent="AimAtObject" instance=ExtResource( 5 )]
 transform = Transform( 2.80969, 0, 0, 0, 2, 0, 0, 0, -1.79576, 0, -0.293561, 0.17185 )
+damage = 30
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.999997, 0.00242582, 0, -0.00242582, -0.999997, 0.154332, 0.262516, 0.23903 )

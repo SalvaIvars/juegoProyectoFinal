@@ -17,6 +17,7 @@ onready var weapon_manager = $Camera/WeaponManager
 onready var pickup_manager = $PickupManager
 
 var dead = false
+var node_final = null
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -30,6 +31,7 @@ func _ready():
 	weapon_manager.init($Camera/FirePoint, [self])
 	$AudioMachineGun.pitch_scale = 0.01
 	var node_var = get_node_or_null("/root/Level3")
+	node_final = get_node_or_null("/root/NivelFinal")
 	if node_var:
 		character_mover.move_accel = 4
 		character_mover.max_speed = 25
@@ -48,7 +50,10 @@ func start_player():
 	weapon_manager.switch_to_weapon_slot(0)
 	weapon_manager.remove_machinegun()
 	$AudioMachineGun.pitch_scale = 1
-	self.transform.origin = Vector3(21.2, 9,36)
+	if node_final != null:
+		self.transform.origin = Vector3(193.827,-136.405,590.06)
+	else:
+		self.transform.origin = Vector3(21.2, 9,36)
 	rotation_degrees.y -=  options.mouse_sens * 24.0
 	camera.rotation_degrees.x -=  options.mouse_sens * 154.0
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, -90, 90)
@@ -73,8 +78,12 @@ func simulate_key(which_key):
 
 func _process(_delta):
 	$Camera.fov = options.fov
-	if self.transform.origin.y < -25:
-		kill()
+	if node_final != null:
+		if self.transform.origin.y < -150:
+			kill()
+	else:
+		if self.transform.origin.y < -25:
+			kill()
 	if Input.is_action_just_pressed("exit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("restart"):
@@ -84,6 +93,10 @@ func _process(_delta):
 	
 	if dead:
 		return
+	if int($CanvasLayer/Points.text) != options.points and options.points != 1:
+		get_node("CanvasLayer/Points").get("custom_fonts/font").set_size(100)
+		$CanvasLayer/Points.text = str(options.points)
+		change_size_label()
 	
 	var move_vec = Vector3()
 	if Input.is_action_pressed("move_forward"):
@@ -123,7 +136,18 @@ func heal(amount):
 	health_manager.heal(amount)
 
 func kill():
+	options.points = 1
 	$CanvasLayer.hide()
 	dead = true
 	character_mover.freeze()
 	get_node("DeathMenu").set_is_paused(true)
+
+func hide_layer():
+	$CanvasLayer.hide()
+
+func show_layer():
+	$CanvasLayer.show()
+
+func change_size_label():
+	yield(get_tree().create_timer(0.1), "timeout")
+	get_node("CanvasLayer/Points").get("custom_fonts/font").set_size(30)

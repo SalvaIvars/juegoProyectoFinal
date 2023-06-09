@@ -33,6 +33,5 @@ func _on_Play_pressed():
 func _on_Quit_pressed():
 	get_tree().quit()
 
-
-func _on_Settings_pressed():
-	settings_menu.popup_centered()
+func _on_Multiplayer_pressed():
+	get_tree().change_scene("res://ui/MultiplayerMenu.tscn")

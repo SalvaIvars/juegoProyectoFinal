@@ -1,5 +1,7 @@
 extends Node
 
+var points = 1
+
 var mouse_sens = 0.5
 var fov = 70
 var volume = 0.5

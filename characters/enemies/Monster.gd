@@ -22,6 +22,8 @@ export var attack_anim_speed_mod = 0.5
 var attack_timer : Timer
 var can_attack = true
 
+onready var options = get_node("/root/GlobalSettings")
+
 signal attack
 
 func _ready():
@@ -106,6 +108,7 @@ func hurt(damage: int, dir: Vector3):
 	if cur_state == STATES.IDLE:
 		set_state_chase()
 	health_mananger.hurt(damage, dir)
+	options.points += damage * 2
 
 func start_attack():
 	can_attack = false
